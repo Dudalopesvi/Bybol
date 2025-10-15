@@ -1,0 +1,120 @@
+* {
+    background-color: rgb(156, 209, 240);
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-align: center ;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(34, 9, 177);
+    border: 10px;
+    ;
+    font-weight: 900;
+    text-align: center;
+    padding-top: 40px;
+}
+
+h1 {
+    font-family: f;
+    color: rgb(27, 24, 165);
+    border: 10px;
+    ;
+    font-weight: 900;
+    text-align: center;
+    padding-top: 40px;
+    font-size: 150px;
+    rotate: -15deg;
+    margin-left: -10px;
+}
+
+p {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    color: rgb(47, 17, 216);
+}
+
+#Explorar {
+    background-color: rgb(48, 50, 190);
+    color: rgb(255, 255, 255);
+    border-radius: 8px;
+    padding: 10px 30px;
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#CriarConta {
+    background-color: rgb(230, 217, 46);
+    color: rgb(0, 0, 0);
+    border-radius: 8px;
+    padding: 8px 15px;
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: block;
+    margin: auto;
+}
+
+#Login {
+    background-color: rgb(57, 103, 230);
+    color: rgb(255, 255, 255);
+    border-radius: 8px;
+    padding: 8px 15px;
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: block;
+    margin: auto;
+}
+
+#ModoAnônimo {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 8px;
+    padding: 8px 15px;
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: block;
+    margin: auto;
+
+}
+
+#Explorar:hover {
+
+    background-color: #ffffff;
+    /* Nova cor quando o mouse está sobre o botão */
+    color: black;
+    /* Nova cor do texto quando o mouse está sobre o botão */
+    cursor: pointer;
+}
+
+#CriarConta:hover {
+
+    background-color: #ffffff;
+    /* Nova cor quando o mouse está sobre o botão */
+    color: black;
+    /* Nova cor do texto quando o mouse está sobre o botão */
+    cursor: pointer;
+}
+#Login:hover {
+
+    background-color: #ffffff;
+    /* Nova cor quando o mouse está sobre o botão */
+    color: black;
+    /* Nova cor do texto quando o mouse está sobre o botão */
+    cursor: pointer;
+}
+#ModoAnônimo:hover {
+    background-color: #ffffff;
+    /* Nova cor quando o mouse está sobre o botão */
+    color: black;
+    /* Nova cor do texto quando o mouse está sobre o botão */
+    cursor: pointer;
+}
+
+
