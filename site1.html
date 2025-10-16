@@ -13,7 +13,7 @@
     }
   </style>
   <link rel="stylesheet" href="site1.css">
-  <script type="module" src="site1.js" defer></script>
+  <script src="site1.js" defer></script>
 
 
 </head>
@@ -21,17 +21,23 @@
 <body>
 
 
-
+<div class="logo">
   <h1>B</h1>
+</div>
+
+<div id="apresentação">
   <h2>Olá bem vindo(a) ao Bybal!</h2>
   <p>Como você quer entrar?</p> <br>
+</div>
 
-  <div class="botões">
-  <button onclick="mostrarareadecriarconta()" id="CriarConta"> Criar Conta </button><br>
+  <div class="botões" id="botõess">
+  <button onclick="mostrarareadecriarconta()" id="CriarConta" > Criar Conta </button><br>
   <button onclick="mostrarareadeLogin()" id="Login">Login</button> <br>
   <button onclick="mostrarareadeExplorar()" id="Explorar">Explorar</button><br><br>
   <button onclick="mostrarareadeModoAnônimo()" id="ModoAnônimo">Modo Anônimo</button> <br>
+  
 </div>
+
 
   <div class="hidden" id="CriarConta1">
     <h2>Criar conta</h2>
@@ -50,21 +56,23 @@
 
 
 
-
-
-
   <div class="hidden" id="Explorar1">
-    <button onclick="mostrarareadeExplorar()" id="Explorar">Explorar</button><br><br>
     <h2>Explorando</h2>
+    <p>Bem vindo ao modo Explorar!!!</p> <br>
+    Pesquisar: <input id="PesquisarDoExporar" type="text" placeholder="Qual será a leitura de hoje?"><br>
   </div>
 
 
   <div class="hidden" id="ModoAnônimo1">
-    <button onclick="mostrarareadeModoAnônimo()" id="ModoAnônimo">Modo Anônimo</button> <br>
     <h2>Anônimo</h2>
     <p> Você está no modo anônimo, algumas funções estão desabilitadas.</p>
 
   </div>
+
+  <div class="b_acessar">
+    <button onclick="acessar()" id="acessar">acessar</button> <br> <br>
+  </div>
+
 
   <br> <br> <br> <br> <br> <br>
   <p>Contato:</p>
@@ -75,4 +83,14 @@
 
 
   <br><br>
+
+ 
+ 
+
+  <div class="caixa-com-rolagem">
+    <h2>Título do Conteúdo</h2>
+    <p>Texto longo que fará a barra de rolagem aparecer automaticamente. Texto longo que fará a barra de rolagem aparecer automaticamente. Texto longo que fará a barra de rolagem aparecer automaticamente...</p>
+  </div>
+  
+  
 </body>

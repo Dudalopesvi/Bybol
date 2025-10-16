@@ -40,32 +40,41 @@ function Salvar() {
     mostrarareadecriarconta()
     mostrarareadeExplorar()
     mostrarareadeModoAnônimo()
+   
     localStorage.setItem("usuarios", JSON.stringify(usuarios))
 }
 
 function mostrarareadeLogin() {
 
-    document.getElementById("login1").classList.remove("hidden")
-    document.getElementById("Criarconta1").classList.add("hidden")
+    document.getElementById("Login1").classList.remove("hidden")
+    document.getElementById("CriarConta1").classList.add("hidden")
     document.getElementById("Explorar1").classList.add("hidden")
     document.getElementById("ModoAnônimo1").classList.add("hidden")
+    document.getElementById("botõess").classList.add("hidden")
+    document.getElementById("apresentação").classList.add("hidden")
+  
 }
 
 function mostrarareadecriarconta() {
 
-    document.getElementById("Criarconta1").classList.remove("hidden")
-    document.getElementById("login1").classList.add("hidden")
+    document.getElementById("CriarConta1").classList.remove("hidden")
+    document.getElementById("Login1").classList.add("hidden")
     document.getElementById("Explorar1").classList.add("hidden")
     document.getElementById("ModoAnônimo1").classList.add("hidden")
+    document.getElementById("botõess").classList.add("hidden")
+    document.getElementById("apresentação").classList.add("hidden")
+
 }
 
 
 function mostrarareadeExplorar() {
 
     document.getElementById("Explorar1").classList.remove("hidden")
-    document.getElementById("Criarconta1").classList.add("hidden")
-    document.getElementById("login1").classList.add("hidden")
+    document.getElementById("CriarConta1").classList.add("hidden")
+    document.getElementById("Login1").classList.add("hidden")
     document.getElementById("ModoAnônimo1").classList.add("hidden")
+    document.getElementById("botõess").classList.add("hidden")
+    document.getElementById("apresentação").classList.add("hidden")
 }
 
 
@@ -73,8 +82,14 @@ function mostrarareadeExplorar() {
 function mostrarareadeModoAnônimo() {
 
     document.getElementById("ModoAnônimo1").classList.remove("hidden")
-    document.getElementById("Criarconta1").classList.add("hidden")
-    document.getElementById("login1").classList.add("hidden")
+    document.getElementById("CriarConta1").classList.add("hidden")
+    document.getElementById("Login1").classList.add("hidden")
     document.getElementById("Explorar1").classList.add("hidden")
+    document.getElementById("botõess").classList.add("hidden")
+    document.getElementById("apresentação").classList.add("hidden")
+ 
 }
 
+function acessar (){
+ document.getElementById("b_acessar").classList.remove("hidden")   
+}
