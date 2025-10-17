@@ -3,7 +3,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    text-align: center ;
+    text-align: center;
 }
 
 
@@ -12,9 +12,9 @@ body {
     font-family: 'Montserrat', sans-serif;
     overflow: hidden;
     text-align: center;
-   
-      }
-  
+
+}
+
 
 
 
@@ -90,6 +90,18 @@ p {
 
 }
 
+#acessar {
+    background-color: rgb(27, 24, 165);
+    color: rgb(255, 255, 255);
+    border-radius: 8px;
+    padding: 4px 12px;
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: block;
+    margin: auto;
+    
+}
+
 #Explorar:hover {
 
     background-color: #ffffff;
@@ -107,6 +119,7 @@ p {
     /* Nova cor do texto quando o mouse está sobre o botão */
     cursor: pointer;
 }
+
 #Login:hover {
 
     background-color: #ffffff;
@@ -115,6 +128,7 @@ p {
     /* Nova cor do texto quando o mouse está sobre o botão */
     cursor: pointer;
 }
+
 #ModoAnônimo:hover {
     background-color: #ffffff;
     /* Nova cor quando o mouse está sobre o botão */
@@ -122,8 +136,3 @@ p {
     /* Nova cor do texto quando o mouse está sobre o botão */
     cursor: pointer;
 }
-
-
-
-
-

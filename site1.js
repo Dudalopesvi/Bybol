@@ -40,7 +40,7 @@ function Salvar() {
     mostrarareadecriarconta()
     mostrarareadeExplorar()
     mostrarareadeModoAnônimo()
-   
+
     localStorage.setItem("usuarios", JSON.stringify(usuarios))
 }
 
@@ -52,7 +52,7 @@ function mostrarareadeLogin() {
     document.getElementById("ModoAnônimo1").classList.add("hidden")
     document.getElementById("botõess").classList.add("hidden")
     document.getElementById("apresentação").classList.add("hidden")
-  
+    document.getElementById("acessar").classList.remove("hidden")
 }
 
 function mostrarareadecriarconta() {
@@ -63,7 +63,7 @@ function mostrarareadecriarconta() {
     document.getElementById("ModoAnônimo1").classList.add("hidden")
     document.getElementById("botõess").classList.add("hidden")
     document.getElementById("apresentação").classList.add("hidden")
-
+    document.getElementById("acessar").classList.remove("hidden")
 }
 
 
@@ -75,6 +75,8 @@ function mostrarareadeExplorar() {
     document.getElementById("ModoAnônimo1").classList.add("hidden")
     document.getElementById("botõess").classList.add("hidden")
     document.getElementById("apresentação").classList.add("hidden")
+    document.getElementById("acessar").classList.remove("hidden")
+
 }
 
 
@@ -87,9 +89,15 @@ function mostrarareadeModoAnônimo() {
     document.getElementById("Explorar1").classList.add("hidden")
     document.getElementById("botõess").classList.add("hidden")
     document.getElementById("apresentação").classList.add("hidden")
- 
+    document.getElementById("acessar").classList.remove("hidden")
+
 }
 
-function acessar (){
- document.getElementById("b_acessar").classList.remove("hidden")   
+function acessar() {
+    document.getElementById("acessar").classList.remove("hidden")
+    document.getElementById("CriarConta1").classList.add("hidden")
+    document.getElementById("Login1").classList.add("hidden")
+    document.getElementById("Explorar1").classList.add("hidden")
+    document.getElementById("botõess").classList.add("hidden")
+    document.getElementById("apresentação").classList.add("hidden")
 }
