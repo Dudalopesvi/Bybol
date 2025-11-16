@@ -1,6 +1,17 @@
 
+
 let login = document.getElementById("login");
 let senha = document.getElementById("senha");
+
+
+const url = "https://openlibrary.org/search.json?q=the+lord+of+the+rings"
+
+async function imformação_Livros() {
+    const resposta = await fetch("https://viacep.com.br/ws/88132857/json/")
+    const dados = await resposta.json()
+    console.log("exercicio 1 ", dados)
+}
+
 
 function cadastrar() {
     let usuario = { login: login.value, senha: senha.value }
