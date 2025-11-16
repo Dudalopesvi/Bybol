@@ -1,6 +1,5 @@
 
 let login = document.getElementById("login");
-
 let senha = document.getElementById("senha");
 
 function cadastrar() {
@@ -40,6 +39,7 @@ function Salvar() {
     mostrarareadecriarconta()
     mostrarareadeExplorar()
     mostrarareadeModoAnônimo()
+    acessar()
 
     localStorage.setItem("usuarios", JSON.stringify(usuarios))
 }
@@ -52,7 +52,7 @@ function mostrarareadeLogin() {
     document.getElementById("ModoAnônimo1").classList.add("hidden")
     document.getElementById("botõess").classList.add("hidden")
     document.getElementById("apresentação").classList.add("hidden")
-    document.getElementById("acessar").classList.remove("hidden")
+    document.getElementById("acessar1").classList.remove("hidden")
 }
 
 function mostrarareadecriarconta() {
@@ -63,7 +63,7 @@ function mostrarareadecriarconta() {
     document.getElementById("ModoAnônimo1").classList.add("hidden")
     document.getElementById("botõess").classList.add("hidden")
     document.getElementById("apresentação").classList.add("hidden")
-    document.getElementById("acessar").classList.remove("hidden")
+    document.getElementById("acessar1").classList.remove("hidden")
 }
 
 
@@ -75,7 +75,7 @@ function mostrarareadeExplorar() {
     document.getElementById("ModoAnônimo1").classList.add("hidden")
     document.getElementById("botõess").classList.add("hidden")
     document.getElementById("apresentação").classList.add("hidden")
-    document.getElementById("acessar").classList.remove("hidden")
+    document.getElementById("acessar1").classList.remove("hidden")
 
 }
 
@@ -89,15 +89,46 @@ function mostrarareadeModoAnônimo() {
     document.getElementById("Explorar1").classList.add("hidden")
     document.getElementById("botõess").classList.add("hidden")
     document.getElementById("apresentação").classList.add("hidden")
-    document.getElementById("acessar").classList.remove("hidden")
+    document.getElementById("acessar1").classList.remove("hidden")
 
 }
 
-function acessar() {
-    document.getElementById("acessar").classList.remove("hidden")
+function acessaraparecer() {
+    document.getElementById("acessar1").classList.remove("hidden")
     document.getElementById("CriarConta1").classList.add("hidden")
     document.getElementById("Login1").classList.add("hidden")
     document.getElementById("Explorar1").classList.add("hidden")
     document.getElementById("botõess").classList.add("hidden")
     document.getElementById("apresentação").classList.add("hidden")
+
 }
+
+senha   .addEventListener("keyup", function (event) {
+    if (event.key === "Enter") {
+        acessar();
+    }});
+login   .addEventListener("keyup", function (event) {
+    if (event.key === "Enter") {
+        acessar();
+    }});
+document.getElementById("senhadocriarconta").addEventListener("keyup", function (event) {
+    if (event.key === "Enter") {
+        Salvar();
+    }});
+document.getElementById("nomecriaronta").addEventListener("keyup", function (event) {
+    if (event.key === "Enter") {
+        Salvar();
+    }});                
+document.getElementById("emailaocriar").addEventListener("keyup", function (event) {
+    if (event.key === "Enter") {
+        Salvar();
+    }   });             
+document.getElementById("usuarios").addEventListener("keyup", function (event) {
+    if (event.key === "Enter") {
+        Salvar();
+    }});    
+document.getElementById("senha").addEventListener("keyup", function (event) {
+    if (event.key === "Enter") {
+        Salvar();
+    }});
+

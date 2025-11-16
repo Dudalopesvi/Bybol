@@ -136,3 +136,25 @@ p {
     /* Nova cor do texto quando o mouse está sobre o botão */
     cursor: pointer;
 }
+
+
+input{
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 40%;
+    margin-bottom: 15px;
+    border-color: blue;
+}
+
+#acessarpagina {
+    background-color: rgb(27, 24, 165);
+    color: rgb(255, 255, 255);
+    border-radius: 8px;
+    padding: 4px 12px;
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: block;
+    margin: auto;
+}
