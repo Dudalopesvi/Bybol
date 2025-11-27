@@ -4,6 +4,9 @@
     margin: 0;
     box-sizing: border-box;
     text-align: center;
+
+    
+  
 }
 
 
@@ -12,6 +15,9 @@ body {
     font-family: 'Montserrat', sans-serif;
     overflow: hidden;
     text-align: center;
+    overflow-y: scroll; /* força a barra vertical */
+    
+      
 
 }
 
@@ -99,26 +105,25 @@ p {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: block;
     margin: auto;
-    
+
 }
 
 #Explorar:hover {
-
     background-color: #ffffff;
     /* Nova cor quando o mouse está sobre o botão */
     color: black;
     /* Nova cor do texto quando o mouse está sobre o botão */
     cursor: pointer;
-}
+}   
 
 #CriarConta:hover {
-
     background-color: #ffffff;
     /* Nova cor quando o mouse está sobre o botão */
     color: black;
     /* Nova cor do texto quando o mouse está sobre o botão */
     cursor: pointer;
 }
+
 
 #Login:hover {
 
@@ -138,7 +143,7 @@ p {
 }
 
 
-input{
+input {
     padding: 10px;
     border: 2px solid #ccc;
     border-radius: 4px;
@@ -161,3 +166,199 @@ input{
 
 
 
+
+#botão_do_email {
+    background-color: #68a4f3;
+    border: 1px solid #0f56b3;
+    border-radius: 10px;
+    font-size: 20px;
+    height: 40px;
+    width: 100px;
+
+}
+#botão_do_email:hover{
+    background-color: #ffffff;
+    /* Nova cor quando o mouse está sobre o botão */
+    color: black;
+
+}
+
+
+.alert {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.alert button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.alert button:hover {
+    background: #45a049;
+}
+
+
+footer {
+    background-color: #509afa;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+   border-radius: 10px
+   ;
+   display: flex;
+}
+
+#contato {
+    background-color: #509afa;
+}
+
+#LOGIN2 p{
+    color: rgb(30, 5, 173);
+}
+
+
+  /* --- Barra de Pesquisa --- */
+  .search-box {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    gap: 10px;
+  }
+  
+  .search-box input {
+    width: 350px;
+    padding: 12px 15px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+  
+  .search-box input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0,123,255,0.4);
+  }
+  
+  .search-box button {
+    padding: 12px 20px;
+    background: #007bff;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .search-box button:hover {
+    background: #0056b3;
+  }
+  
+  /* --- Grid dos livros --- */
+  .livros {
+    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+    padding: 25px;
+    width: 90%;
+    margin: auto;
+  }
+  
+  /* --- Cartão dos livros --- */
+  .livros {
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .livros:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  }
+  
+  .livros img {
+    width: 10px;
+    height: 10px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 6px;
+  }
+  
+  .livros h3 {
+    font-size: 18px;
+    color: #222;
+    margin: 10px 0;
+  }
+  
+  .livros p {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  /* --- Mensagem --- */
+  .mensagem {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    margin-top: 20px;
+  }
+  
+
+  #Opções{
+    font-size: x-large;
+  }
+
+  .livros {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+    padding: 25px;
+    width: 90%;
+    margin: auto;
+  
+    /* Novos estilos para rolagem */
+    max-height: 500px; /* altura máxima do container */
+    overflow-y: auto;   /* adiciona barra de rolagem vertical */
+    background: #fff;   /* opcional: cor de fundo para destacar */
+    border-radius: 12px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  
+  .livros::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .livros::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 10px;
+  }
+  
+  .livros::-webkit-scrollbar-thumb {
+    background: #007bff;
+    border-radius: 10px;
+  }
+  
+  .livros::-webkit-scrollbar-thumb:hover {
+    background: #0056b3;
+  }
+  
+  

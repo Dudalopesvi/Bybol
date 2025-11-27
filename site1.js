@@ -64,6 +64,7 @@ function mostrarareadeLogin() {
     document.getElementById("botõess").classList.add("hidden")
     document.getElementById("apresentação").classList.add("hidden")
     document.getElementById("acessar1").classList.remove("hidden")
+    document.getElementById("footer1").classList.add("hidden")
 }
 
 function mostrarareadecriarconta() {
@@ -75,6 +76,7 @@ function mostrarareadecriarconta() {
     document.getElementById("botõess").classList.add("hidden")
     document.getElementById("apresentação").classList.add("hidden")
     document.getElementById("acessar1").classList.remove("hidden")
+    document.getElementById("footer1").classList.add("hidden")
 }
 
 
@@ -87,7 +89,8 @@ function mostrarareadeExplorar() {
     document.getElementById("botõess").classList.add("hidden")
     document.getElementById("apresentação").classList.add("hidden")
     document.getElementById("acessar1").classList.remove("hidden")
-
+    document.getElementById("livros").classList.remove("hidden")
+    document.getElementById("footer1").classList.add("hidden")
 }
 
 
@@ -101,6 +104,7 @@ function mostrarareadeModoAnônimo() {
     document.getElementById("botõess").classList.add("hidden")
     document.getElementById("apresentação").classList.add("hidden")
     document.getElementById("acessar1").classList.remove("hidden")
+    document.getElementById("footer1").classList.add("hidden")
 
 }
 
@@ -111,6 +115,7 @@ function acessaraparecer() {
     document.getElementById("Explorar1").classList.add("hidden")
     document.getElementById("botõess").classList.add("hidden")
     document.getElementById("apresentação").classList.add("hidden")
+     document.getElementById("footer1").classList.add("hidden")
 
 }
 
@@ -143,3 +148,67 @@ document.getElementById("senha").addEventListener("keyup", function (event) {
         Salvar();
     }});
 
+
+    function showAlert() {
+        document.getElementById("custom-alert").style.display = "block";
+      }
+      
+      function closeAlert() {
+        document.getElementById("custom-alert").style.display = "none";
+      }
+
+      // Buscar livros na API dBooks
+async function buscarLivros(termo) {
+    const res = await fetch(`https://www.dbooks.org/api/search/${termo}`);
+    const data = await res.json();
+    return data.books;
+  }
+  
+  // Mostrar livros
+  async function pesquisar() {
+    const termo = document.getElementById("inputBusca").value.trim();
+    const container = document.getElementById("livros");
+    const msg = document.getElementById("mensagem");
+  
+    container.innerHTML = "";
+    msg.textContent = "";
+  
+    if (!termo) {
+      msg.textContent = "Digite algo para pesquisar.";
+      return;
+    }
+  
+    msg.textContent = "Procurando livros...";
+  
+    const livros = await buscarLivros(termo);
+  
+    if (!livros || livros.length === 0) {
+      msg.textContent = "Nenhum livro encontrado.";
+      return;
+    }
+  
+    msg.textContent = "";
+  
+    livros.forEach(livro => {
+      const div = document.createElement("div");
+      div.className = "livro";
+  
+      div.innerHTML = `
+        <img src="${livro.image}" alt="${livro.title}">
+        <h3>${livro.title}</h3>
+        <p>${livro.authors}</p>
+      `;
+  
+      container.appendChild(div);
+    });
+  }
+  
+  // Ativar botão de pesquisa
+  document.getElementById("btnPesquisar").addEventListener("click", pesquisar);
+  
+  // Pesquisar ao pressionar Enter
+  document.getElementById("inputBusca").addEventListener("keypress", function(e) {
+    if (e.key === "Enter") pesquisar();
+  });
+  
+      

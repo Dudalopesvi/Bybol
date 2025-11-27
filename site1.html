@@ -14,6 +14,7 @@
   </style>
   <link rel="stylesheet" href="site1.css">
   <script src="site1.js" defer></script>
+  <a href="site2.html"></a>
 
 
 </head>
@@ -21,26 +22,26 @@
 <body>
 
 
-<div class="logo">
-  <h1>B</h1>
-</div>
+  <div class="logo">
+    <h1>B</h1><br><br>
+  </div>
 
-<div id="apresentação">
-  <h2>Olá bem vindo(a) ao Bybal!</h2>
-  <p>Como você quer entrar?</p> <br>
-</div>
-
+  <div id="apresentação">
+    <h2>Olá bem vindo(a) ao Bybal!</h2>
+    <p>Como você quer entrar?</p> <br>
+  </div>
+  <br><br>
   <div class="botões" id="botõess">
-  <button onclick="mostrarareadecriarconta()" id="CriarConta" > Criar Conta </button><br>
-  <button onclick="mostrarareadeLogin()" id="Login">Login</button> <br>
-  <button onclick="mostrarareadeExplorar()" id="Explorar">Explorar</button><br><br>
-  <button onclick="mostrarareadeModoAnônimo()" id="ModoAnônimo">Modo Anônimo</button> <br>
-  
-</div>
+    <button onclick="mostrarareadecriarconta()" id="CriarConta"> Criar Conta </button><br>
+    <button onclick="mostrarareadeLogin()" id="Login">Login</button> <br>
+    <button onclick="mostrarareadeExplorar()" id="Explorar">Explorar</button><br><br>
+    <button onclick="mostrarareadeModoAnônimo()" id="ModoAnônimo">Modo Anônimo</button> <br>
+
+  </div>
 
 
   <div class="hidden" id="CriarConta1">
-    <h2>Criar conta</h2><br>  
+    <h2>Criar conta</h2><br>
     nome : <input id="nomecriaronta" type="text"><br>
     senha : <input id="senhadocriarconta" type="password"><br>
     Email : <input id="emailaocriar" type="text"> <br>
@@ -48,8 +49,12 @@
 
   <div class="hidden" id="Login1">
     <h2>Login</h2><br>
-    nome : <input id="nomelogin" type="text">
-    senha : <input id="senhalogin" type="password">
+    <DIV id="LOGIN2">
+    <p>Olá!
+    </p>
+    <p>Bem vinda(o) de volta leitor(a)</p></DIV><BR><BR></BR></BR>
+    nome : <input id="nomelogin" type="text" required><br>
+    senha : <input id="senhalogin" type="password" required>
 
 
   </div>
@@ -60,6 +65,7 @@
     <h2>Explorando</h2><br>
     <p>Bem vindo ao modo Explorar!!!</p> <br>
     Pesquisar: <input id="PesquisarDoExporar" type="text" placeholder="Qual será a leitura de hoje?"><br>
+    <button id="btnPesquisar">Pesquisar</button>
   </div>
 
 
@@ -69,22 +75,76 @@
 
   </div>
 
-  <div class="hidden" id="acessar1"><br>
-    <button onclick="acessaraparecer()" id="acessarpagina" >acessar</button> <br> <br>
+  <div class="hidden" id="livros">
+  <div class="livros_p">
+    
+
+  
+  
+    <h2 id="Opções">Opções</h2>
+  
+    <!-- Onde os livros serão exibidos -->
+    <div class="livros2" id="livros2"></div>
+  
+    <script>
+      // Função para buscar livros por termo
+      async function buscarLivros(termo) {
+        const res = await fetch(`https://www.dbooks.org/api/search/${termo}`);
+        const data = await res.json();
+        return data.books;
+      }
+  
+      // Mostrar livros na tela
+      async function mostrarLivros() {
+        const lista = await buscarLivros("python"); // trocar o termo se quiser
+        const container = document.getElementById("livros");
+  
+        lista.forEach(livro => {
+          const div = document.createElement("div");
+          div.className = "livro";
+  
+          div.innerHTML = `
+            <img src="${livro.image}" alt="${livro.title}">
+            <h3>${livro.title}</h3>
+            <p>${livro.authors}</p>
+          `;
+  
+          container.appendChild(div);
+        });
+      }
+    
+      // Executar ao carregar
+      mostrarLivros();
+
+</script>
+
+      </div>
   </div>
 
 
-  <br> <br> <br> <br> <br> <br>
-  <p>Contato:</p>
-  <br>
-  <a href="contatobybal@gmail.com">Email</a>
 
 
 
+  <div class="hidden" id="acessar1"><br>
+    <button onclick="acessaraparecer()" id="acessarpagina">acessar</button> <br> <br>
+  </div>
 
-  <br><br>
+  <br><br><br><br><br><br>
+  <footer class="footer1">
+    <br> <br>
+    <p id="contato">Contato:</p>
+    <br>
 
- 
-  
-  
+
+
+    <button onclick="showAlert()" id="botão_do_email">Email</button>
+
+    <div id="custom-alert" class="alert">
+      <p id="alert-message">O Email de contato é contatobybal@gmail.com</p>
+      <button onclick="closeAlert()">OK</button>
+    </div>
+
+
+  </footer>
 </body>
+
