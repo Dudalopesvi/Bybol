@@ -1,150 +1,174 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bybal</title>
-  <style>
-    .hidden {
-      display: none;
-    }
-  </style>
   <link rel="stylesheet" href="site1.css">
   <script src="site1.js" defer></script>
-  <a href="site2.html"></a>
-
-
+  <style>
+    .hidden { display: none; }
+  </style>
 </head>
-
 <body>
 
-
   <div class="logo">
-    <h1>B</h1><br><br>
+    <h1>B</h1>
   </div>
 
   <div id="apresentação">
     <h2>Olá bem vindo(a) ao Bybal!</h2>
-    <p>Como você quer entrar?</p> <br>
+    <p>Como você quer entrar?</p>
   </div>
-  <br><br>
+
   <div class="botões" id="botõess">
-    <button onclick="mostrarareadecriarconta()" id="CriarConta"> Criar Conta </button><br>
-    <button onclick="mostrarareadeLogin()" id="Login">Login</button> <br>
-    <button onclick="mostrarareadeExplorar()" id="Explorar">Explorar</button><br><br>
-    <button onclick="mostrarareadeModoAnônimo()" id="ModoAnônimo">Modo Anônimo</button> <br>
-
+    <button onclick="mostrarareadecriarconta()" id="CriarConta"> Criar Conta </button>
+    <button onclick="mostrarareadeLogin()" id="Login">Login</button>
+    <button onclick="mostrarareadeExplorar()" id="Explorar">Explorar</button>
+    <button onclick="mostrarareadeModoAnônimo()" id="ModoAnônimo">Modo Anônimo</button>
   </div>
 
+  <div class="dark_mode">
+    <button id="toggleDark">🌙 Dark Mode</button>
+  </div>
 
   <div class="hidden" id="CriarConta1">
-    <h2>Criar conta</h2><br>
+    <h2>Criar conta</h2>
     nome : <input id="nomecriaronta" type="text"><br>
     senha : <input id="senhadocriarconta" type="password"><br>
-    Email : <input id="emailaocriar" type="text"> <br>
+    Email : <input id="emailaocriar" type="text"><br>
   </div>
 
   <div class="hidden" id="Login1">
-    <h2>Login</h2><br>
-    <DIV id="LOGIN2">
-    <p>Olá!
-    </p>
-    <p>Bem vinda(o) de volta leitor(a)</p></DIV><BR><BR></BR></BR>
+    <h2>Login</h2>
+    <div id="LOGIN2">
+      <p>Olá!</p>
+      <p>Bem vinda(o) de volta leitor(a)</p>
+    </div>
     nome : <input id="nomelogin" type="text" required><br>
     senha : <input id="senhalogin" type="password" required>
-
-
   </div>
-
-
 
   <div class="hidden" id="Explorar1">
-    <h2>Explorando</h2><br>
-    <p>Bem vindo ao modo Explorar!!!</p> <br>
-    Pesquisar: <input id="PesquisarDoExporar" type="text" placeholder="Qual será a leitura de hoje?"><br>
-    <button id="btnPesquisar">Pesquisar</button>
-  </div>
+    <h2>Explorando</h2>
+    <p>Bem vindo ao modo Explorar!!!</p>
+    <label for="PesquisarDoExporar">Pesquisar:</label>
+    <input id="PesquisarDoExporar" type="text" placeholder="Qual será a leitura de hoje?">
+    <button id="btnPesquisar">🔍</button>
 
+    <div id="loading" class="loading" style="display:none;">Carregando...</div>
+
+    <div class="carousel" id="carousel-track">
+      
+  </div>
 
   <div class="hidden" id="ModoAnônimo1">
-    <h2>Anônimo</h2><br>
+    <h2>Anônimo</h2>
     <p> Você está no modo anônimo, algumas funções estão desabilitadas.</p>
-
   </div>
 
-  <div class="hidden" id="livros">
-  <div class="livros_p">
-    
-
-  
-  
-    <h2 id="Opções">Opções</h2>
-  
-    <!-- Onde os livros serão exibidos -->
-    <div class="livros2" id="livros2"></div>
-  
-    <script>
-      // Função para buscar livros por termo
-      async function buscarLivros(termo) {
-        const res = await fetch(`https://www.dbooks.org/api/search/${termo}`);
-        const data = await res.json();
-        return data.books;
-      }
-  
-      // Mostrar livros na tela
-      async function mostrarLivros() {
-        const lista = await buscarLivros("python"); // trocar o termo se quiser
-        const container = document.getElementById("livros");
-  
-        lista.forEach(livro => {
-          const div = document.createElement("div");
-          div.className = "livro";
-  
-          div.innerHTML = `
-            <img src="${livro.image}" alt="${livro.title}">
-            <h3>${livro.title}</h3>
-            <p>${livro.authors}</p>
-          `;
-  
-          container.appendChild(div);
-        });
-      }
-    
-      // Executar ao carregar
-      mostrarLivros();
-
-</script>
-
-      </div>
+  <div class="hidden" id="acessar1">
+    <button onclick="acessaraparecer()" id="acessarpagina">acessar</button>
   </div>
 
-
-
-
-
-  <div class="hidden" id="acessar1"><br>
-    <button onclick="acessaraparecer()" id="acessarpagina">acessar</button> <br> <br>
-  </div>
-
-  <br><br><br><br><br><br>
-  <footer class="footer1">
-    <br> <br>
-    <p id="contato">Contato:</p>
-    <br>
-
-
-
-    <button onclick="showAlert()" id="botão_do_email">Email</button>
-
-    <div id="custom-alert" class="alert">
-      <p id="alert-message">O Email de contato é contatobybal@gmail.com</p>
-      <button onclick="closeAlert()">OK</button>
+  <footer>
+    <div class="footer-left">
+      <span class="icon">📘</span>
+      <a href="#">Sobre</a>
+      <a href="#">Contato</a>
     </div>
-
-
+    <div class="footer-right">
+      <span class="icon">✨</span>
+      <a href="#">Termos</a>
+      <a href="#">Privacidade</a>
+    </div>
   </footer>
-</body>
 
+  <script>
+    // ===========================
+    // FUNÇÃO MOSTRAR SEÇÕES
+    // ===========================
+    function mostrar(id) {
+      const seções = ['CriarConta1','Login1','Explorar1','ModoAnônimo1','acessar1'];
+      seções.forEach(sec => {
+        document.getElementById(sec).classList.add('hidden');
+      });
+      document.getElementById(id).classList.remove('hidden');
+
+      // Mostrar botão acessar se clicou em uma opção de acesso
+      if (['CriarConta1','Login1','Explorar1','ModoAnônimo1'].includes(id)) {
+        document.getElementById('acessar1').classList.remove('hidden');
+      }
+    }
+
+    // Funções para os botões de acesso
+    function mostrarareadecriarconta(){ mostrar('CriarConta1'); }
+    function mostrarareadeLogin(){ mostrar('Login1'); }
+    function mostrarareadeExplorar(){ mostrar('Explorar1'); }
+    function mostrarareadeModoAnônimo(){ mostrar('ModoAnônimo1'); }
+    function acessaraparecer(){ alert('Botão acessar clicado!'); }
+
+    // ===========================
+    // DARK MODE
+    // ===========================
+    document.getElementById("toggleDark").addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+    });
+
+    // ===========================
+    // PESQUISAR LIVROS
+    // ===========================
+    async function buscarLivros(termo) {
+      try {
+        const urlOriginal = `https://www.dbooks.org/api/search/${encodeURIComponent(termo)}`;
+        const proxy = `https://api.allorigins.win/get?url=${encodeURIComponent(urlOriginal)}`;
+        const res = await fetch(proxy);
+        const data = await res.json();
+        const conteudo = JSON.parse(data.contents);
+        return conteudo.books || [];
+      } catch (e) {
+        console.error("Erro ao buscar:", e);
+        return [];
+      }
+    }
+
+    async function pesquisar() {
+      const termo = document.getElementById("PesquisarDoExporar").value.trim();
+      const loading = document.getElementById("loading");
+      const track = document.getElementById("carousel-track");
+
+      track.innerHTML = "";
+      if (termo === "") {
+        track.innerHTML = "<p>Digite algo para pesquisar.</p>";
+        return;
+      }
+
+      loading.style.display = "block";
+      const livros = await buscarLivros(termo);
+      loading.style.display = "none";
+
+      if (!livros || livros.length === 0) {
+        track.innerHTML = "<p>Nenhum livro encontrado.</p>";
+        return;
+      }
+
+      livros.forEach(livro => {
+        const card = document.createElement("div");
+        card.className = "livro";
+        card.innerHTML = `
+          <img src="${livro.image}" alt="${livro.title}">
+          <h3>${livro.title}</h3>
+          <p>${livro.authors || "Autor desconhecido"}</p>
+          <a href="https://www.dbooks.org/${livro.id}/" target="_blank">Ver livro</a>
+        `;
+        track.appendChild(card);
+      });
+    }
+
+    document.getElementById("btnPesquisar").addEventListener("click", pesquisar);
+    document.getElementById("PesquisarDoExporar").addEventListener("keypress", (e) => {
+      if (e.key === "Enter") pesquisar();
+    });
+  </script>
+</body>
+</html>

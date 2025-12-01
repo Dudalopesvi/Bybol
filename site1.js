@@ -64,7 +64,7 @@ function mostrarareadeLogin() {
     document.getElementById("botõess").classList.add("hidden")
     document.getElementById("apresentação").classList.add("hidden")
     document.getElementById("acessar1").classList.remove("hidden")
-    document.getElementById("footer1").classList.add("hidden")
+   
 }
 
 function mostrarareadecriarconta() {
@@ -76,7 +76,7 @@ function mostrarareadecriarconta() {
     document.getElementById("botõess").classList.add("hidden")
     document.getElementById("apresentação").classList.add("hidden")
     document.getElementById("acessar1").classList.remove("hidden")
-    document.getElementById("footer1").classList.add("hidden")
+
 }
 
 
@@ -90,7 +90,7 @@ function mostrarareadeExplorar() {
     document.getElementById("apresentação").classList.add("hidden")
     document.getElementById("acessar1").classList.remove("hidden")
     document.getElementById("livros").classList.remove("hidden")
-    document.getElementById("footer1").classList.add("hidden")
+
 }
 
 
@@ -104,7 +104,7 @@ function mostrarareadeModoAnônimo() {
     document.getElementById("botõess").classList.add("hidden")
     document.getElementById("apresentação").classList.add("hidden")
     document.getElementById("acessar1").classList.remove("hidden")
-    document.getElementById("footer1").classList.add("hidden")
+
 
 }
 
@@ -115,15 +115,15 @@ function acessaraparecer() {
     document.getElementById("Explorar1").classList.add("hidden")
     document.getElementById("botõess").classList.add("hidden")
     document.getElementById("apresentação").classList.add("hidden")
-     document.getElementById("footer1").classList.add("hidden")
+
 
 }
 
-senha   .addEventListener("keyup", function (event) {
+senha.addEventListener("keyup", function (event) {
     if (event.key === "Enter") {
         acessar();
     }});
-login   .addEventListener("keyup", function (event) {
+login.addEventListener("keyup", function (event) {
     if (event.key === "Enter") {
         acessar();
     }});
@@ -157,58 +157,76 @@ document.getElementById("senha").addEventListener("keyup", function (event) {
         document.getElementById("custom-alert").style.display = "none";
       }
 
-      // Buscar livros na API dBooks
-async function buscarLivros(termo) {
-    const res = await fetch(`https://www.dbooks.org/api/search/${termo}`);
+
+// ================================
+// Código Alternativo com Carrossel
+// ================================
+
+
+const input = document.getElementById("PesquisarDoExporar");
+const botao = document.getElementById("btnPesquisar");
+const loading = document.getElementById("loading");
+const track = document.getElementById("carousel-track");
+
+document.getElementById("toggleDark").addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+});
+
+// =========================== PESQUISAR LIVROS ===========================
+async function buscarLivros(termo){
+  try{
+    const urlOriginal = `https://www.dbooks.org/api/search/${encodeURIComponent(termo)}`;
+    const proxy = `https://api.allorigins.win/get?url=${encodeURIComponent(urlOriginal)}`;
+    const res = await fetch(proxy);
     const data = await res.json();
-    return data.books;
+    const conteudo = JSON.parse(data.contents);
+    return conteudo.books || [];
+  }catch(e){
+    console.error("Erro ao buscar:", e);
+    return [];
   }
-  
-  // Mostrar livros
-  async function pesquisar() {
-    const termo = document.getElementById("inputBusca").value.trim();
-    const container = document.getElementById("livros");
-    const msg = document.getElementById("mensagem");
-  
-    container.innerHTML = "";
-    msg.textContent = "";
-  
-    if (!termo) {
-      msg.textContent = "Digite algo para pesquisar.";
-      return;
-    }
-  
-    msg.textContent = "Procurando livros...";
-  
-    const livros = await buscarLivros(termo);
-  
-    if (!livros || livros.length === 0) {
-      msg.textContent = "Nenhum livro encontrado.";
-      return;
-    }
-  
-    msg.textContent = "";
-  
-    livros.forEach(livro => {
-      const div = document.createElement("div");
-      div.className = "livro";
-  
-      div.innerHTML = `
-        <img src="${livro.image}" alt="${livro.title}">
-        <h3>${livro.title}</h3>
-        <p>${livro.authors}</p>
-      `;
-  
-      container.appendChild(div);
-    });
+}
+
+async function pesquisar(){
+  const termo = document.getElementById("PesquisarDoExporar").value.trim();
+  const loading = document.getElementById("loading");
+  const track = document.getElementById("carousel-track");
+  track.innerHTML = "";
+
+  if(termo===""){ 
+    track.innerHTML="<p>Digite algo para pesquisar.</p>"; 
+    return; 
   }
-  
-  // Ativar botão de pesquisa
-  document.getElementById("btnPesquisar").addEventListener("click", pesquisar);
-  
-  // Pesquisar ao pressionar Enter
-  document.getElementById("inputBusca").addEventListener("keypress", function(e) {
-    if (e.key === "Enter") pesquisar();
+
+  loading.style.display="block";
+  const livros = await buscarLivros(termo);
+  loading.style.display="none";
+
+  if(!livros || livros.length===0){ 
+    track.innerHTML="<p>Nenhum livro encontrado.</p>"; 
+    return; 
+  }
+
+  livros.forEach(livro=>{
+    const card=document.createElement("div");
+    card.className="livro";
+    card.innerHTML=`
+      <img src="${livro.image}" alt="${livro.title}">
+      <h3>${livro.title}</h3>
+      <p>${livro.authors || "Autor desconhecido"}</p>
+      <a href="https://www.dbooks.org/${livro.id}/" target="_blank">Ver livro</a>
+    `;
+    track.appendChild(card);
   });
-  
-      
+}
+
+// Eventos para pesquisa
+document.getElementById("btnPesquisar").addEventListener("click",pesquisar);
+document.getElementById("PesquisarDoExporar").addEventListener("keypress",(e)=>{
+  if(e.key==="Enter") pesquisar();
+});
+
+// =========================== SETAS DO CARROSSEL ===========================
+const carousel = document.getElementById("carousel-track");
+document.getElementById("arrow-left").addEventListener("click",()=>{ carousel.scrollBy({left:-200, behavior:'smooth'}); });
+document.getElementById("arrow-right").addEventListener("click",()=>{ carousel.scrollBy({left:200, behavior:'smooth'}); });
