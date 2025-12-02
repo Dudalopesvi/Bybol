@@ -1,2 +1,2 @@
 # Bybol
-site de livraria gratuita
+site de Biblioteca gratuita
