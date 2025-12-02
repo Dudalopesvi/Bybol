@@ -143,7 +143,7 @@ footer {
   left: 0;
   width: 100%;
   padding: 18px 30px;
-  
+
   /* Glass + sombra + cor elegante */
   background: rgba(20, 20, 35, 0.85);
   backdrop-filter: blur(12px);
@@ -338,3 +338,11 @@ footer .icon:hover {
   opacity: 1;           /* torna visível */
   transform: translateY(0); /* volta à posição normal */
 }
+
+
+.livro a{
+  background-color: #3939d4;
+  color: white;
+  display: block;
+  border-radius: 8px;
+} 
