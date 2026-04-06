@@ -11,30 +11,31 @@ body {
   font-family: 'Montserrat', sans-serif;
   background: var(--bg);
   color: var(--text);
-  transition: 0.3s;
+  transition: background 0.3s, color 0.3s;
   overflow-y: scroll;
   text-align: center;
+  padding-bottom: 80px; /* espaço para o footer fixo */
 }
 
 /* ===========================
    TEMA (LIGHT / DARK)
 =========================== */
 :root {
-  --bg: #87a8ef;
-  --text: #111;
-  --card-bg: #f5f5f5;
-  --accent: #4e8cff;
-    --title-color: #1b18a5; /* cor do B no modo claro */
---h2-color: #1b18a5;       /* h2 no claro */
-  }
+  --bg:           #87a8ef;
+  --text:         #111;
+  --card-bg:      #f5f5f5;
+  --accent:       #4e8cff;
+  --title-color:  #1b18a5;
+  --h2-color:     #1b18a5;
+}
 
 .dark {
-  --bg: #0202bf;
-  --text: #e6edf3;
-  --card-bg: #161b22;
-  --accent: #58a6ff;
-  --title-color: #ffffff;
-  --h2-color: #ffffff;
+  --bg:           #0202bf;
+  --text:         #e6edf3;
+  --card-bg:      #161b22;
+  --accent:       #58a6ff;
+  --title-color:  #ffffff;
+  --h2-color:     #ffffff;
 }
 
 /* ===========================
@@ -42,7 +43,7 @@ body {
 =========================== */
 h1 {
   font-size: 150px;
-    color: var(--title-color);
+  color: var(--title-color);
   font-weight: 900;
   rotate: -15deg;
   margin-top: 40px;
@@ -56,9 +57,7 @@ h2 {
   margin-top: 40px;
 }
 
-p {
-  font-size: 20px;
-}
+p { font-size: 20px; }
 
 /* ===========================
    BOTÕES PRINCIPAIS
@@ -72,29 +71,33 @@ button {
 #Explorar,
 #CriarConta,
 #Login,
-#ModoAnônimo,
-#acessar,
-#acessarpagina {
+#ModoAnonimo,
+#acessarpagina,
+#btnCadastrar,
+#btnLogin {
   font-family: 'Gill Sans', sans-serif;
   font-size: 25px;
   padding: 10px 20px;
   display: block;
   margin: 10px auto;
-  transition: 0.3s;
+  transition: background 0.3s, color 0.3s;
 }
 
-#Explorar { background: #3032be; color: white; }
-#CriarConta { background: #e6d92e; color: black; }
-#Login { background: #3967e6; color: white; }
-#ModoAnônimo { background: black; color: white; }
-#acessar, #acessarpagina { background: #2d2ab8; color: rgb(255, 255, 255); }
+#Explorar      { background: #3032be; color: white; }
+#CriarConta    { background: #e6d92e; color: black; }
+#Login         { background: #3967e6; color: white; }
+#ModoAnonimo   { background: black;   color: white; }
+#acessarpagina,
+#btnCadastrar,
+#btnLogin      { background: #2d2ab8; color: white; }
 
 #Explorar:hover,
 #CriarConta:hover,
 #Login:hover,
-#ModoAnônimo:hover,
-#acessar:hover,
-#acessarpagina:hover {
+#ModoAnonimo:hover,
+#acessarpagina:hover,
+#btnCadastrar:hover,
+#btnLogin:hover {
   background: #ffffff;
   color: black;
 }
@@ -112,50 +115,23 @@ input {
 }
 
 /* ===========================
-   ALERTA
-=========================== */
-.alert {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
-}
-
-.alert button {
-  padding: 8px 16px;
-  background: #4CAF50;
-  color: white;
-  border-radius: 5px;
-}
-
-/* ===========================
    FOOTER
 =========================== */
-/* ===== FOOTER EXCLUSIVO DIVO ===== */
 footer {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   padding: 18px 30px;
-
-  /* Glass + sombra + cor elegante */
   background: rgba(20, 20, 35, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-top: 1px solid rgba(255,255,255,0.2);
   box-shadow: 0 -4px 20px rgba(0,0,0,0.5);
-  
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  
   font-family: 'Gill Sans', sans-serif;
   font-size: 18px;
   color: var(--text);
@@ -163,7 +139,6 @@ footer {
   z-index: 100;
 }
 
-/* Links do footer */
 footer a {
   color: var(--accent);
   text-decoration: none;
@@ -177,7 +152,6 @@ footer a:hover {
   transform: scale(1.1);
 }
 
-/* Ícones do footer */
 footer .icon {
   font-size: 22px;
   cursor: pointer;
@@ -190,7 +164,6 @@ footer .icon:hover {
   transform: scale(1.3) rotate(10deg);
 }
 
-/* Responsivo */
 @media screen and (max-width: 600px) {
   footer {
     flex-direction: column;
@@ -198,11 +171,7 @@ footer .icon:hover {
     font-size: 16px;
     padding: 15px 20px;
   }
-  footer .icon {
-    font-size: 20px;
-  }
 }
-
 
 /* ===========================
    BARRA DE PESQUISA
@@ -224,6 +193,7 @@ footer .icon:hover {
 .search-box input:focus {
   border-color: #007bff;
   box-shadow: 0 0 5px rgba(0,123,255,0.4);
+  outline: none;
 }
 
 #btnPesquisar {
@@ -234,9 +204,7 @@ footer .icon:hover {
   color: white;
 }
 
-#btnPesquisar:hover {
-  background: #0f56b3;
-}
+#btnPesquisar:hover { background: #0f56b3; }
 
 /* ===========================
    LOADING
@@ -248,32 +216,57 @@ footer .icon:hover {
 }
 
 /* ===========================
-   CARROSSEL NETFLIX
+   CARROSSEL COM SETAS
 =========================== */
-/* ===========================
-   CARROSSEL ESTILO NETFLIX
-=========================== */
-/* ===========================
-   CARROSSEL HORIZONTAL NETFLIX
-=========================== */
-.carousel {
-  display: flex;               /* alinha os livros na horizontal */
-  overflow-x: auto;            /* habilita rolagem horizontal */
-  overflow-y: hidden;          /* bloqueia rolagem vertical */
-  scroll-snap-type: x mandatory; /* efeito de encaixe */
-  scroll-behavior: smooth;     /* rolagem suave */
-  gap: 20px;                   /* espaço entre livros */
-  padding: 20px 10px;
-  -webkit-overflow-scrolling: touch; /* suaviza no mobile */
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 10px;
 }
 
+.arrow {
+  flex-shrink: 0;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.arrow:hover { background: #0f56b3; }
+
+.carousel {
+  flex: 1;
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 20px;
+  padding: 20px 10px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Oculta scrollbar visualmente mas mantém funcional */
+.carousel::-webkit-scrollbar { height: 6px; }
+.carousel::-webkit-scrollbar-track { background: transparent; }
+.carousel::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+
+/* ===========================
+   CARDS DE LIVRO
+=========================== */
 .livro {
-  flex: 0 0 auto;              /* mantém largura fixa */
-  width: 180px;                /* largura do livro */
+  flex: 0 0 auto;
+  width: 180px;
   background: var(--card-bg);
   padding: 12px;
   border-radius: 12px;
-  scroll-snap-align: start;    /* encaixa ao rolar */
+  scroll-snap-align: start;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
   text-align: center;
@@ -286,32 +279,36 @@ footer .icon:hover {
   transition: transform 0.25s ease;
 }
 
+.livro h3 {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.livro p {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
 .livro:hover {
-  transform: scale(1.13);
+  transform: scale(1.08);
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
-.livro:hover img {
-  transform: scale(1.05);
+.livro:hover img { transform: scale(1.05); }
+
+.livro a {
+  background-color: #3939d4;
+  color: white;
+  display: block;
+  border-radius: 8px;
+  padding: 6px;
+  text-decoration: none;
+  font-size: 13px;
+  transition: background 0.2s;
 }
 
-/* Scrollbar opcional */
-.carousel::-webkit-scrollbar {
-  height: 8px;
-}
-
-.carousel::-webkit-scrollbar-track {
-  background: #f0f0f0;
-}
-
-.carousel::-webkit-scrollbar-thumb {
-  background: #007bff;
-  border-radius: 10px;
-}
-
-.carousel::-webkit-scrollbar-thumb:hover {
-  background: #4e8cff;
-}
+.livro a:hover { background-color: #1e1ea8; }
 
 /* ===========================
    DARK MODE BUTTON
@@ -331,18 +328,17 @@ footer .icon:hover {
   color: white;
 }
 
-/* Animação suave para o botão "acessar" */
-
-
-#acessar1.show {
-  opacity: 1;           /* torna visível */
-  transform: translateY(0); /* volta à posição normal */
+#Voltar {
+  background: var(--card-bg);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 8px 14px;
+  margin-top: 10px;
+  transition: 0.2s;
+  border-radius: 6px;
 }
 
-
-.livro a{
-  background-color: #3939d4;
+#Voltar:hover {
+  background: var(--accent);
   color: white;
-  display: block;
-  border-radius: 8px;
-} 
+}

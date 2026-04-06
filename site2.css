@@ -1,0 +1,190 @@
+/* ===========================
+   NAVBAR
+=========================== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 32px;
+  background: rgba(20, 20, 35, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+.nav-logo {
+  font-family: 'Times New Roman', serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-link {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #ffffff;
+}
+
+.nav-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+}
+
+#btnLogout {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.8);
+  padding: 5px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#btnLogout:hover {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+}
+
+.navbar #toggleDark {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.navbar #toggleDark:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+/* ===========================
+   HERO
+=========================== */
+.hero {
+  padding: 60px 20px 40px;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 36px;
+  color: var(--h2-color);
+  margin-bottom: 8px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+
+.btn-hero {
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-hero:hover {
+  background: #185FA5;
+  transform: translateY(-2px);
+}
+
+/* ===========================
+   SEÇÕES
+=========================== */
+.secao {
+  padding: 20px 32px 40px;
+  text-align: left;
+}
+
+.secao h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--h2-color);
+  margin-bottom: 16px;
+}
+
+.msg-vazia {
+  font-size: 16px;
+  color: var(--text);
+  opacity: 0.7;
+  text-align: center;
+  padding: 24px 0;
+}
+
+.msg-vazia a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ===========================
+   BOTÃO REMOVER FAVORITO
+=========================== */
+.btn-remover {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 5px;
+  background: transparent;
+  border: 1px solid #e24b4a;
+  color: #e24b4a;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-remover:hover {
+  background: #e24b4a;
+  color: white;
+}
+
+/* ===========================
+   BOTÃO FAVORITAR (site3)
+=========================== */
+.btn-favoritar {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 5px;
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-favoritar:hover,
+.btn-favoritar.favoritado {
+  background: var(--accent);
+  color: white;
+}

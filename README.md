@@ -7,13 +7,13 @@ O projeto também serve como prática de **desenvolvimento web**, organização 
 
 ---
 
-# ✨ Funcionalidades
+# Funcionalidades
 
-* 📖 Navegação simples entre páginas
-* 📚 Organização de livros via JavaScript
-* 🎨 Interface limpa e focada na leitura
-* ⚡ Carregamento rápido por ser um site estático
-* 🧩 Estrutura preparada para expansão da biblioteca
+* Navegação simples entre páginas
+* Organização de livros via JavaScript
+* Interface limpa e focada na leitura
+* Carregamento rápido por ser um site estático
+* Estrutura preparada para expansão da biblioteca
 
 ---
 

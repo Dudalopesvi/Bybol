@@ -3,76 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bybal</title>
+  <title>Bybol</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="site1.css">
-  <script src="site1.js" defer></script>
-  <script> </script>
-  <style>
-    .hidden { display: none; }
-  </style>
+  <style>.hidden { display: none; }</style>
 </head>
 <body>
 
-  <div class="logo">
-    <h1>B</h1>
+  <div class="logo"><h1>B</h1></div>
+
+  <!-- Tela inicial -->
+  <div id="telaInicial">
+    <div id="apresentacao">
+      <h2>Olá, bem-vindo(a) ao Bybol!</h2>
+      <p>Como você quer entrar?</p>
+    </div>
+    <div class="botoes">
+      <button onclick="mostrarTela('telaCriarConta')" id="CriarConta">Criar Conta</button>
+      <button onclick="mostrarTela('telaLogin')"      id="Login">Login</button>
+      <button onclick="irPara('site3.html')"          id="Explorar">Explorar</button>
+      <button onclick="mostrarTela('telaAnonimo')"    id="ModoAnonimo">Modo Anônimo</button>
+    </div>
   </div>
 
-  <div id="apresentação">
-    <h2>Olá bem vindo(a) ao Bybal!</h2>
-    <p>Como você quer entrar?</p>
+  <!-- Tela de criar conta -->
+  <div id="telaCriarConta" class="hidden">
+    <h2>Criar conta</h2>
+    <label>Nome: <input id="nomecriarconta" type="text" placeholder="Seu nome de usuário"></label><br>
+    <label>Senha: <input id="senhadocriarconta" type="password" placeholder="Mínimo 6 caracteres"></label><br>
+    <label>Email: <input id="emailaocriar" type="email" placeholder="seu@email.com"></label><br>
+    <button onclick="cadastrar()" id="btnCadastrar">Cadastrar</button>
+    <button onclick="mostrarTela('telaInicial')" class="btn-voltar" id="Voltar">← Voltar</button>
   </div>
 
-  <div class="botões" id="botõess">
-    <button onclick="mostrarareadecriarconta()" id="CriarConta"> Criar Conta </button>
-    <button onclick="mostrarareadeLogin()" id="Login">Login</button>
-    <button onclick="mostrarareadeExplorar()" id="Explorar">Explorar</button>
-    <button onclick="mostrarareadeModoAnônimo()" id="ModoAnônimo">Modo Anônimo</button>
+  <!-- Tela de login -->
+  <div id="telaLogin" class="hidden">
+    <h2>Login</h2>
+    <p>Bem-vindo(a) de volta, leitor(a)!</p>
+    <label>Nome: <input id="nomelogin" type="text" placeholder="Seu login"></label><br>
+    <label>Senha: <input id="senhalogin" type="password" placeholder="Sua senha"></label><br>
+    <button onclick="fazerLogin()" id="btnLogin">Entrar</button>
+    <button onclick="mostrarTela('telaInicial')" class="btn-voltar">← Voltar</button>
+  </div>
+
+  <!-- Tela modo anônimo -->
+  <div id="telaAnonimo" class="hidden">
+    <h2>Modo Anônimo</h2>
+    <p>Você está navegando sem conta. Algumas funções estão desabilitadas.</p>
+    <button onclick="irPara('site3.html')" id="Explorar">Explorar livros</button>
+    <button onclick="mostrarTela('telaInicial')" class="btn-voltar">← Voltar</button>
   </div>
 
   <div class="dark_mode">
     <button id="toggleDark">🌙 Dark Mode</button>
-  </div>
-
-  <div class="hidden" id="CriarConta1">
-    <h2>Criar conta</h2>
-    nome : <input id="nomecriaronta" type="text"><br>
-    senha : <input id="senhadocriarconta" type="password"><br>
-    Email : <input id="emailaocriar" type="text"><br>
-  </div>
-
-  <div class="hidden" id="Login1">
-    <h2>Login</h2>
-    <div id="LOGIN2">
-      <p>Olá!</p>
-      <p>Bem vinda(o) de volta leitor(a)</p>
-    </div>
-    nome : <input id="nomelogin" type="text" required><br>
-    senha : <input id="senhalogin" type="password" required>
-  </div>
-
-  <div class="hidden" id="Explorar1">
-    <h2>Explorando</h2>
-    <p>Bem vindo ao modo Explorar!!!</p>
-    <label for="PesquisarDoExporar">Pesquisar:</label>
-    <input id="PesquisarDoExporar" type="text" placeholder="Qual será a leitura de hoje?">
-    <button id="btnPesquisar">🔍</button>
-
-    <div id="loading" class="loading" style="display:none;">Carregando...</div>
-<div id="teste">
-  
-
-</div>
-    <div class="carousel" id="carousel-track">
-      
-  </div>
-
-  <div class="hidden" id="ModoAnônimo1">
-    <h2>Anônimo</h2>
-    <p> Você está no modo anônimo, algumas funções estão desabilitadas.</p>
-  </div>
-
-  <div class="hidden" id="acessar1">
-    <button onclick="acessaraparecer()" id="acessarpagina">acessar</button>
   </div>
 
   <footer>
@@ -88,17 +71,6 @@
     </div>
   </footer>
 
-  <script>
-    // ===========================
-    // DARK MODE
-    // ===========================
-    document.getElementById("toggleDark").addEventListener("click", () => {
-      document.body.classList.toggle("dark");
-    });
-
-    
-  </script>
-
-  <script src="livros.js"></script>
+  <script src="site1.js"></script>
 </body>
 </html>
