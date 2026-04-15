@@ -1,113 +1,97 @@
-# Bybol 📚
+📚 Bybol — Biblioteca Digital Gratuita
+Bybol é uma biblioteca digital gratuita desenvolvida como projeto web. O objetivo é facilitar o acesso a livros e incentivar a leitura através de uma interface simples, organizada e acessível diretamente pelo navegador.
 
-**Bybol** é uma biblioteca digital gratuita desenvolvida como projeto web.
-O objetivo é facilitar o acesso a livros e incentivar a leitura através de uma interface simples, organizada e acessível diretamente pelo navegador.
+O projeto também serve como prática de desenvolvimento web, organização de código e estruturação de aplicações front-end.
 
-O projeto também serve como prática de **desenvolvimento web**, organização de código e estruturação de aplicações front-end.
 
----
+✨ Funcionalidades
 
-# Funcionalidades
+📖 Navegação simples entre páginas
+🗂️ Organização de livros via JavaScript
+🎨 Interface limpa e focada na leitura
+⚡ Carregamento rápido por ser um site estático
+🔧 Estrutura preparada para expansão da biblioteca
 
-* Navegação simples entre páginas
-* Organização de livros via JavaScript
-* Interface limpa e focada na leitura
-* Carregamento rápido por ser um site estático
-* Estrutura preparada para expansão da biblioteca
 
----
+🛠️ Tecnologias Utilizadas
+TecnologiaFinalidadeHTML5Estrutura das páginasCSS3Layout e estilizaçãoJavaScriptLógica e organização dos livros
 
-# 🛠 Tecnologias utilizadas
+📁 Estrutura do Projeto
 
-Este projeto foi desenvolvido utilizando tecnologias fundamentais da web:
+Bybol/
 
-* **HTML5** — estrutura das páginas
-* **CSS3** — layout e estilização
-* **JavaScript** — lógica e organização dos livros
+├── src/
 
----
+│   ├── components/    # Componentes reutilizáveis
 
-# 📂 Estrutura do projeto
+│   ├── private/       # Páginas/recursos de acesso restrito
 
-```
-Bybol
-│
-├── site1.html        # Página principal da biblioteca
-├── site1.css         # Estilos da página principal
-├── site1.js          # Scripts da página principal
-│
-├── site2.html        # Página secundária
-├── site2.css         # Estilos da segunda página
-│
-├── livros.js         # Organização e gerenciamento dos livros
-│
-├── README.md         # Documentação do projeto
-└── projetos.code-workspace
-```
+│   ├── public/
 
----
+│   │   └── login/     # Página de login
 
-# 🚀 Como executar o projeto
+│   └── utils/         # Funções utilitárias
 
-1. Clone este repositório
+├── package.json
 
-```
-git clone https://github.com/seu-usuario/bybol.git
-```
+└── README.md
 
-2. Acesse a pasta do projeto
 
-```
-cd bybol
-```
+🚀 Como Executar
+bash# Clone o repositório
+git clone https://github.com/Dudalopesvi/Bybol.git
 
-3. Abra o arquivo **site1.html** no navegador.
+# Acesse a pasta do projeto
+cd Bybol
 
-Não é necessário instalar dependências, pois o projeto é totalmente **front-end**.
+# Instale as dependências
+npm install
 
----
+# Inicie o projeto
+npm start
 
-# 🎯 Objetivo do projeto
 
-O projeto **Bybol** foi criado para:
+🎯 Objetivo do Projeto
+O Bybol foi criado para:
 
-* incentivar a leitura
-* organizar livros digitalmente
-* praticar desenvolvimento web
-* aprender boas práticas de organização de código
+📚 Incentivar a leitura
 
----
+🗃️ Organizar livros digitalmente
 
-# 📌 Status do projeto
+💻 Praticar desenvolvimento web
 
-🚧 Projeto em desenvolvimento.
+✅ Aprender boas práticas de organização de código
+
+
+📌 Status do Projeto
+
+🚧 Em desenvolvimento
 
 Melhorias futuras podem incluir:
 
-* sistema de busca de livros
-* categorias de leitura
-* interface mais avançada
-* integração com APIs de livros
-* sistema de usuários
+ Categorias de leitura
+ Interface mais avançada
+ IA 
 
----
+🤝 Contribuindo
 
-# 🤝 Contribuindo
+Contribuições são bem-vindas!
 
-Contribuições são bem-vindas.
+Faça um fork do projeto
+Crie uma nova branch:
 
-1. Faça um **fork** do projeto
-2. Crie uma nova **branch**
+bash   git checkout -b minha-feature
 
-```
-git checkout -b minha-feature
-```
+Faça suas alterações e commit:
 
-3. Faça suas alterações
-4. Envie um **Pull Request**
+bash   git commit -m "feat: minha nova feature"
 
----
+Envie para a branch:
 
-# 📄 Licença
+bash   git push origin minha-feature
 
-Este projeto é livre para **uso educacional e de entreterimento**
+Abra um Pull Request
+
+
+📄 Licença
+Este projeto é livre para uso educacional e de entretenimento.
