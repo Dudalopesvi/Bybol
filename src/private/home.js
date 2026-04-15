@@ -74,7 +74,7 @@ document.getElementById("arrow-right")
 // ── Logout ─────────────────────────────────────────────────
 function logout() {
   localStorage.removeItem("bybol_usuario");
-  window.location.href = "src/public/login/login.html";
+  window.location.href = "/src/public/login/login.html";
 }
 window.logout = logout;
 

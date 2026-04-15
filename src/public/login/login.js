@@ -2,18 +2,6 @@
 // BYBOL — login.js
 // ============================================================
 
-function irPara(pagina) {
-  window.location.href = pagina;
-}
-
-function mostrarTela(id) {
-  const telas = ["telaInicial", "telaCriarConta", "telaLogin", "telaAnonimo"];
-  telas.forEach(t => {
-    const el = document.getElementById(t);
-    if (el) el.classList.toggle("hidden", t !== id);
-  });
-}
-
 // ── Cadastro ───────────────────────────────────────────────
 function cadastrar() {
   const login = document.getElementById("nomecriarconta").value.trim();
@@ -46,7 +34,7 @@ function fazerLogin() {
   if (!user) { alert("Login ou senha incorretos."); return; }
 
   localStorage.setItem("bybol_usuario", login);
-  irPara("src/private/home.html");
+  irPara("home");
 }
 
 // ── Enter nos campos ───────────────────────────────────────
