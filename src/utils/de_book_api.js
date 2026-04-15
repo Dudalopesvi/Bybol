@@ -1,6 +1,6 @@
 // ============================================================
 // BYBOL — livros.js
-// Só define buscarLivros(). Os listeners ficam no site3.js.
+// Só define buscarLivros(). Os listeners ficam no readme.js.
 // ============================================================
 
 async function buscarLivros(termo) {

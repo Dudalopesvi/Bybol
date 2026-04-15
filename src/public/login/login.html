@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bybol</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="site1.css">
+  <link rel="stylesheet" href="login.css">
   <style>.hidden { display: none; }</style>
 </head>
 <body>
@@ -21,7 +21,7 @@
     <div class="botoes">
       <button onclick="mostrarTela('telaCriarConta')" id="CriarConta">Criar Conta</button>
       <button onclick="mostrarTela('telaLogin')"      id="Login">Login</button>
-      <button onclick="irPara('site3.html')"          id="Explorar">Explorar</button>
+      <button onclick="irPara('readme.html')"          id="Explorar">Explorar</button>
       <button onclick="mostrarTela('telaAnonimo')"    id="ModoAnonimo">Modo Anônimo</button>
     </div>
   </div>
@@ -50,7 +50,7 @@
   <div id="telaAnonimo" class="hidden">
     <h2>Modo Anônimo</h2>
     <p>Você está navegando sem conta. Algumas funções estão desabilitadas.</p>
-    <button onclick="irPara('site3.html')" id="Explorar">Explorar livros</button>
+    <button onclick="irPara('src/components/readme.html')" id="Explorar">Explorar livros</button>
     <button onclick="mostrarTela('telaInicial')" class="btn-voltar">← Voltar</button>
   </div>
 
@@ -71,6 +71,6 @@
     </div>
   </footer>
 
-  <script src="site1.js"></script>
+  <script src="login.js"></script>
 </body>
 </html>

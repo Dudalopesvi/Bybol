@@ -1,5 +1,5 @@
 // ============================================================
-// BYBOL — site2.js (home/dashboard)
+// BYBOL — home.js (home/dashboard)
 // ============================================================
 
 const usuario = localStorage.getItem("bybol_usuario");
@@ -74,7 +74,7 @@ document.getElementById("arrow-right")
 // ── Logout ─────────────────────────────────────────────────
 function logout() {
   localStorage.removeItem("bybol_usuario");
-  window.location.href = "site1.html";
+  window.location.href = "src/public/login/login.html";
 }
 window.logout = logout;
 

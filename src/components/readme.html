@@ -3,42 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bybol — Home</title>
+  <title>Bybol — Explorar</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="site1.css">
-  <link rel="stylesheet" href="site2.css">
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="home.css">
 </head>
 <body>
 
   <nav class="navbar">
     <div class="nav-logo">B</div>
     <div class="nav-links">
-      <a href="site2.html" class="nav-link active">Home</a>
-      <a href="site3.html" class="nav-link">Explorar</a>
+      <a href="home.html" class="nav-link">Home</a>
+      <a href="readme.html" class="nav-link active">Explorar</a>
     </div>
     <div class="nav-user">
       <span id="nomeUsuario"></span>
-      <button onclick="logout()" id="btnLogout">Sair</button>
+      <button onclick="logout()" id="btnLogout" style="display:none">Sair</button>
       <button id="toggleDark">🌙</button>
     </div>
   </nav>
 
   <section class="hero">
-    <h2 id="saudacao">Bem-vindo(a) de volta!</h2>
-    <p>O que você vai ler hoje?</p>
-    <a href="site3.html" class="btn-hero">Explorar livros →</a>
+    <h2>Explorar</h2>
+    <p>Descubra novos livros</p>
+    <div class="search-box">
+      <input id="PesquisarDoExporar" type="text" placeholder="Qual será a leitura de hoje?">
+      <button id="btnPesquisar">🔍</button>
+    </div>
   </section>
 
   <section class="secao">
-    <h3>⭐ Meus favoritos</h3>
+    <div id="loading" class="loading" style="display:none;">Carregando...</div>
     <div class="carousel-wrapper">
       <button id="arrow-left"  class="arrow">&#8592;</button>
-      <div id="listaFavoritos" class="carousel"></div>
+      <div id="carousel-track" class="carousel"></div>
       <button id="arrow-right" class="arrow">&#8594;</button>
     </div>
-    <p id="semFavoritos" class="msg-vazia">
-      Você ainda não salvou nenhum livro. <a href="site3.html">Explorar agora →</a>
-    </p>
   </section>
 
   <footer>
@@ -54,6 +54,8 @@
     </div>
   </footer>
 
-  <script src="site2.js"></script>
+  <!-- livros.js primeiro (define buscarLivros), site3.js depois -->
+  <script src="de_book_api.js"></script>
+  <script src="readme.js"></script>
 </body>
 </html>

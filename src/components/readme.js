@@ -1,5 +1,5 @@
 // ============================================================
-// BYBOL — site3.js (explorar)
+// BYBOL — readme.js (explorar)
 // ============================================================
 
 // ── Navbar dinâmica ────────────────────────────────────────
@@ -11,7 +11,7 @@ if (usuario) {
 
 function logout() {
   localStorage.removeItem("bybol_usuario");
-  window.location.href = "site1.html";
+  window.location.href = "src/pubic/login/login.html";
 }
 window.logout = logout;
 

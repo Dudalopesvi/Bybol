@@ -1,5 +1,5 @@
 // ============================================================
-// BYBOL — site1.js
+// BYBOL — login.js
 // ============================================================
 
 function irPara(pagina) {
@@ -46,7 +46,7 @@ function fazerLogin() {
   if (!user) { alert("Login ou senha incorretos."); return; }
 
   localStorage.setItem("bybol_usuario", login);
-  irPara("site2.html");
+  irPara("src/private/home.html");
 }
 
 // ── Enter nos campos ───────────────────────────────────────
