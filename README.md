@@ -1,4 +1,6 @@
-📚 Bybol — Biblioteca Digital Gratuita
+📚 Bybol 
+
+Biblioteca Digital Gratuita
 Bybol é uma biblioteca digital gratuita desenvolvida como projeto web. O objetivo é facilitar o acesso a livros e incentivar a leitura através de uma interface simples, organizada e acessível diretamente pelo navegador.
 
 O projeto também serve como prática de desenvolvimento web, organização de código e estruturação de aplicações front-end.
@@ -7,10 +9,15 @@ O projeto também serve como prática de desenvolvimento web, organização de c
 ✨ Funcionalidades
 
 📖 Navegação simples entre páginas
+
 🗂️ Organização de livros via JavaScript
+
 🎨 Interface limpa e focada na leitura
+
 ⚡ Carregamento rápido por ser um site estático
+
 🔧 Estrutura preparada para expansão da biblioteca
+
 
 
 🛠️ Tecnologias Utilizadas
@@ -52,15 +59,20 @@ npm start
 
 
 🎯 Objetivo do Projeto
+
 O Bybol foi criado para:
 
 📚 Incentivar a leitura
 
+
 🗃️ Organizar livros digitalmente
+
 
 💻 Praticar desenvolvimento web
 
+
 ✅ Aprender boas práticas de organização de código
+
 
 
 📌 Status do Projeto
@@ -70,7 +82,9 @@ O Bybol foi criado para:
 Melhorias futuras podem incluir:
 
  Categorias de leitura
+ 
  Interface mais avançada
+ 
  IA 
 
 🤝 Contribuindo
@@ -78,6 +92,7 @@ Melhorias futuras podem incluir:
 Contribuições são bem-vindas!
 
 Faça um fork do projeto
+
 Crie uma nova branch:
 
 bash   git checkout -b minha-feature
