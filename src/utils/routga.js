@@ -9,8 +9,12 @@ function irPara(nome_pagina) {
     if(nome_pagina == 'readme'){
         window.location.href = '/src/components/readme.html'
     }
-
-    window.location.href = pagina;
+    if(nome_pagina == 'ia'){
+        window.location.href = '/src/utils/ia.html'
+    }
+    
+  
+    window.location.href =nome_pagina;
   }
   
   function mostrarTela(id) {

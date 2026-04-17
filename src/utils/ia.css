@@ -1,0 +1,192 @@
+/* ===========================
+   BYBOL — ia.css
+   Estilos da página do Assistente IA
+=========================== */
+
+.ia-section {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+}
+
+/* ===========================
+   SUGESTÕES RÁPIDAS
+=========================== */
+.ia-sugestoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+  justify-content: center;
+}
+
+.sugestao-btn {
+  padding: 7px 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  transition: background 0.2s, color 0.2s;
+}
+
+.sugestao-btn:hover {
+  background: var(--accent);
+  color: white;
+}
+
+/* ===========================
+   CHAT BOX
+=========================== */
+.chat-box {
+  background: var(--card-bg);
+  border: 2px solid var(--accent);
+  border-radius: 16px;
+  padding: 20px;
+  min-height: 340px;
+  max-height: 460px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.chat-box::-webkit-scrollbar { width: 6px; }
+.chat-box::-webkit-scrollbar-track { background: transparent; }
+.chat-box::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+
+/* ===========================
+   MENSAGENS
+=========================== */
+.msg {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  max-width: 92%;
+}
+
+.msg.user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.msg-bubble {
+  padding: 10px 16px;
+  border-radius: 14px;
+  font-size: 14px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.msg.user .msg-bubble {
+  background: var(--accent);
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.msg.bot .msg-bubble {
+  background: #f0f4ff;
+  color: #111;
+  border: 1px solid #b0bcf7;
+  border-bottom-left-radius: 4px;
+}
+
+.dark .msg.bot .msg-bubble {
+  background: #161b22;
+  color: #e6edf3;
+  border-color: #2a3460;
+}
+
+.msg-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+  font-family: 'Times New Roman', serif;
+  font-weight: 900;
+  background: var(--accent);
+  color: white;
+}
+
+/* ===========================
+   TYPING INDICATOR
+=========================== */
+.typing-indicator {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  padding: 6px 2px;
+}
+
+.typing-indicator span {
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: blink 1.2s infinite;
+}
+
+.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes blink {
+  0%, 80%, 100% { opacity: 0.2; }
+  40%           { opacity: 1;   }
+}
+
+/* ===========================
+   INPUT
+=========================== */
+.chat-input-row {
+  display: flex;
+  gap: 10px;
+}
+
+#chatInput {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  background: var(--card-bg);
+  color: var(--text);
+  outline: none;
+  resize: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#chatInput:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 5px rgba(78, 140, 255, 0.35);
+}
+
+#btnEnviar {
+  padding: 12px 22px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#btnEnviar:hover    { background: #1c1ea0; }
+#btnEnviar:disabled { opacity: 0.5; cursor: not-allowed; }
+
+@media screen and (max-width: 600px) {
+  .ia-sugestoes { gap: 6px; }
+  .sugestao-btn { font-size: 12px; padding: 6px 12px; }
+  #chatInput    { font-size: 13px; }
+}

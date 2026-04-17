@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bybol — IA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/public/login/login.css">
+  <link rel="stylesheet" href="/src/private/home.css">
+  <link rel="stylesheet" href="/src/utils/ia.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-logo">B</div>
+    <div class="nav-links">
+      <a href="/src/private/home.html" class="nav-link">Home</a>
+      <a href="/src/components/readme.html" class="nav-link">Explorar</a>
+      <a href="/src/utils/ia.html" class="nav-link active">IA</a>
+    </div>
+    <div class="nav-user">
+      <span id="nomeUsuario"></span>
+      <button onclick="logout()" id="btnLogout" style="display:none">Sair</button>
+      <button id="toggleDark">🌙</button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h2>🤖 Assistente Bybol</h2>
+    <p>Converse com a IA sobre livros, autores e receba recomendações personalizadas</p>
+  </section>
+
+  <section class="ia-section">
+
+    <div class="ia-sugestoes">
+      <button class="sugestao-btn" onclick="enviarSugestao('Me recomende um livro de ficção científica')">📚 Ficção científica</button>
+      <button class="sugestao-btn" onclick="enviarSugestao('Quais são os melhores livros de filosofia?')">🧠 Filosofia</button>
+      <button class="sugestao-btn" onclick="enviarSugestao('Livros para quem gosta de aventura')">🗺️ Aventura</button>
+      <button class="sugestao-btn" onclick="enviarSugestao('Me conte sobre Gabriel García Márquez')">✍️ Sobre autores</button>
+      <button class="sugestao-btn" onclick="enviarSugestao('Livros para aprender programação')">💻 Programação</button>
+      <button class="sugestao-btn" onclick="enviarSugestao('Me recomende um romance')">💖 Romance</button>
+    </div>
+
+    <div id="chatBox" class="chat-box">
+      <div class="msg bot">
+        <div class="msg-avatar">B</div>
+        <div class="msg-bubble">Olá! Sou o assistente do Bybol 📖✨
+
+Posso te ajudar a descobrir novos livros, falar sobre autores, gêneros literários ou dar recomendações personalizadas.
+
+O que você quer explorar hoje?</div>
+      </div>
+    </div>
+
+    <div class="chat-input-row">
+      <textarea id="chatInput" rows="2" placeholder="Pergunte sobre livros, autores, recomendações..."></textarea>
+      <button id="btnEnviar" onclick="enviarMensagem()">➤</button>
+    </div>
+
+  </section>
+
+  <footer>
+    <div class="footer-left">
+      <span class="icon">📘</span>
+      <a href="#">Sobre</a>
+      <a href="#">Contato</a>
+    </div>
+    <div class="footer-right">
+      <span class="icon">✨</span>
+      <a href="#">Termos</a>
+      <a href="#">Privacidade</a>
+    </div>
+  </footer>
+
+  <script src="/src/utils/ia.js"></script>
+  <script src="/src/utils/routga.js"></script>
+</body>
+</html>
