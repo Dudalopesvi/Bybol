@@ -1,112 +1,64 @@
-📚 Bybol 
+# 📚 Bybol
 
-Biblioteca Digital Gratuita
-Bybol é uma biblioteca digital gratuita desenvolvida como projeto web. O objetivo é facilitar o acesso a livros e incentivar a leitura através de uma interface simples, organizada e acessível diretamente pelo navegador.
+Plataforma de leitura e descoberta de livros com assistente IA.
 
-O projeto também serve como prática de desenvolvimento web, organização de código e estruturação de aplicações front-end.
+---
 
+## 🚀 Como rodar o projeto
 
-✨ Funcionalidades
-
-📖 Navegação simples entre páginas
-
-🗂️ Organização de livros via JavaScript
-
-🎨 Interface limpa e focada na leitura
-
-⚡ Carregamento rápido por ser um site estático
-
-🔧 Estrutura preparada para expansão da biblioteca
-
-
-
-🛠️ Tecnologias Utilizadas
-TecnologiaFinalidadeHTML5Estrutura das páginasCSS3Layout e estilizaçãoJavaScriptLógica e organização dos livros
-
-📁 Estrutura do Projeto
-
-Bybol/
-
-├── src/
-
-│   ├── components/    # Componentes reutilizáveis
-
-│   ├── private/       # Páginas/recursos de acesso restrito
-
-│   ├── public/
-
-│   │   └── login/     # Página de login
-
-│   └── utils/         # Funções utilitárias
-
-├── package.json
-
-└── README.md
-
-
-🚀 Como Executar
-bash# Clone o repositório
-git clone https://github.com/Dudalopesvi/Bybol.git
-
-# Acesse a pasta do projeto
-cd Bybol
-
-# Instale as dependências
+### 1. Instale as dependências
+```bash
 npm install
+```
 
-# Inicie o projeto
+### 2. Configure a chave da API
+Abra o arquivo `.env` na raiz do projeto e cole sua chave da Anthropic:
+
+```
+ANTHROPIC_API_KEY=sk-ant-api03-SUA-CHAVE-AQUI
+```
+
+> Obtenha sua chave em: https://console.anthropic.com
+
+### 3. Inicie o servidor
+```bash
 npm start
+```
+Ou com reinício automático (recomendado para desenvolvimento):
+```bash
+npm run dev
+```
 
+### 4. Abra no navegador
+```
+http://localhost:3000
+```
 
-🎯 Objetivo do Projeto
+---
 
-O Bybol foi criado para:
+## 📁 Estrutura do projeto
 
-📚 Incentivar a leitura
+```
+Bybol/
+├── server.js              ← Back-end Express (novo)
+├── .env                   ← Chave da API (não vai para o Git!)
+├── .gitignore
+├── package.json
+└── src/
+    ├── public/login/      ← Tela de login/cadastro
+    ├── private/home/      ← Página principal
+    ├── components/        ← Explorar livros
+    └── utils/
+        ├── ia.html        ← Página da IA
+        ├── ia.js          ← Chat (chama /api/chat)
+        ├── ia.css
+        └── routga.js
+```
 
+---
 
-🗃️ Organizar livros digitalmente
+## 🔒 Segurança
 
-
-💻 Praticar desenvolvimento web
-
-
-✅ Aprender boas práticas de organização de código
-
-
-
-📌 Status do Projeto
-
-🚧 Em desenvolvimento
-
-Melhorias futuras podem incluir:
-
- Categorias de leitura
- 
- Interface mais avançada
- 
- IA 
-
-🤝 Contribuindo
-
-Contribuições são bem-vindas!
-
-Faça um fork do projeto
-
-Crie uma nova branch:
-
-bash   git checkout -b minha-feature
-
-Faça suas alterações e commit:
-
-bash   git commit -m "feat: minha nova feature"
-
-Envie para a branch:
-
-bash   git push origin minha-feature
-
-Abra um Pull Request
-
-
-📄 Licença
-Este projeto é livre para uso educacional e de entretenimento.
+- A chave da API **nunca** fica exposta no front-end
+- O `.env` está no `.gitignore` e nunca vai para o GitHub
+- O front-end chama `/api/chat` → servidor local → Anthropic
