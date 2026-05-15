@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bybol — IA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/public/login/login.css">
+  <link rel="stylesheet" href="/src/private/home.css">
+  <link rel="stylesheet" href="/src/utils/ia.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-logo">B</div>
+    <div class="nav-links">
+      <a href="/src/private/home.html" class="nav-link">Home</a>
+      <a href="/src/components/readme.html" class="nav-link">Explorar</a>
+      <a href="/src/utils/ia.html" class="nav-link active">IA</a>
+    </div>
+    <div class="nav-user">
+      <span id="nomeUsuario"></span>
+      <button onclick="logout()" id="btnLogout" style="display:none">Sair</button>
+      <button id="toggleDark">🌙</button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h2>🤖 Assistente Bybol</h2>
+    <p>Converse com a IA sobre livros, autores e receba recomendações personalizadas</p>
+  </section>
+
+  <div class="api-status-bar">
+    <span id="apiStatusBadge" class="api-badge inativa">🔑 API não configurada</span>
+    <button id="btnConfigurarApi" class="btn-config-api">⚙️ Configurar API</button>
+  </div>
+
+  <section class="ia-section">
+    <div class="ia-sugestoes">
+      <button class="sugestao-btn" onclick="enviarSugestao('Me recomende um livro de ficção científica')">📚 Ficção científica</button>
+      <button class="sugestao-btn" onclick="enviarSugestao('Quais são os melhores livros de filosofia?')">🧠 Filosofia</button>
+      <button class="sugestao-btn" onclick="enviarSugestao('Livros para quem gosta de aventura')">🗺️ Aventura</button>
+      <button class="sugestao-btn" onclick="enviarSugestao('Me conte sobre Gabriel García Márquez')">✍️ Sobre autores</button>
+      <button class="sugestao-btn" onclick="enviarSugestao('Livros para aprender programação')">💻 Programação</button>
+      <button class="sugestao-btn" onclick="enviarSugestao('Me recomende um romance')">💖 Romance</button>
+    </div>
+
+    <div id="chatBox" class="chat-box">
+      <div class="msg bot">
+        <div class="msg-avatar">B</div>
+        <div class="msg-bubble">Olá! Sou o assistente do Bybol 📖✨<br><br>Configure sua API key acima para começar a conversar comigo!</div>
+      </div>
+    </div>
+
+    <div class="chat-input-row">
+      <textarea id="chatInput" rows="2" placeholder="Configure sua API key para começar..." disabled></textarea>
+      <button id="btnEnviar" onclick="enviarMensagem()" disabled>➤</button>
+    </div>
+  </section>
+
+  <!-- ── Modal de API Key ─────────────────────────────────── -->
+  <div id="modalApiKey" class="modal-overlay hidden">
+    <div class="modal-box">
+      <div class="modal-header">
+        <span class="modal-icon">🔑</span>
+        <h3>Configurar API</h3>
+      </div>
+
+      <p class="modal-desc">Escolha o provedor de IA e cole sua API key.</p>
+
+      <!-- Seletor de provedor -->
+      <div class="modal-field-label">Provedor</div>
+      <select id="seletorProvedor" class="modal-select">
+        <option value="groq">⚡ Groq (gratuito, rápido)</option>
+        <option value="anthropic">🧠 Anthropic — Claude</option>
+        <option value="openai">💬 OpenAI — ChatGPT</option>
+        <option value="custom">🔧 Outro (OpenAI-compatível)</option>
+      </select>
+
+      <!-- API Key -->
+      <div class="modal-field-label" style="margin-top:14px">API Key</div>
+      <div class="modal-input-wrap">
+        <input id="inputApiKey" type="password" placeholder="gsk_..." autocomplete="off" spellcheck="false">
+        <button class="btn-toggle-key" onclick="toggleMostrarKey()" title="Mostrar/ocultar">👁</button>
+      </div>
+
+      <!-- Campos custom (escondidos por padrão) -->
+      <div id="customUrlWrap" style="display:none; margin-top:10px">
+        <div class="modal-field-label">URL do endpoint</div>
+        <div class="modal-input-wrap">
+          <input id="inputCustomUrl" type="text" placeholder="https://..." autocomplete="off">
+        </div>
+      </div>
+      <div id="customModeloWrap" style="display:none; margin-top:10px">
+        <div class="modal-field-label">Modelo</div>
+        <div class="modal-input-wrap">
+          <input id="inputCustomModelo" type="text" placeholder="ex: llama3-70b-8192" autocomplete="off">
+        </div>
+      </div>
+
+      <p id="apiKeyErro" class="api-key-erro" style="display:none"></p>
+
+      <div class="modal-link">
+        <a id="modalLink" href="https://console.groq.com/keys" target="_blank" rel="noopener">⚡ Obter key no Groq Console →</a>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn-modal-confirmar" onclick="confirmarApiKey()">✅ Salvar e ativar</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-left">
+      <span class="icon">📘</span><a href="#">Sobre</a><a href="#">Contato</a>
+    </div>
+    <div class="footer-right">
+      <span class="icon">✨</span><a href="#">Termos</a><a href="#">Privacidade</a>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMostrarKey() {
+      const input = document.getElementById('inputApiKey');
+      input.type = input.type === 'password' ? 'text' : 'password';
+    }
+  </script>
+  <script src="/src/utils/ia.js"></script>
+  <script src="/src/utils/routga.js"></script>
+</body>
+</html>

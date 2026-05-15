@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bybol — Explorar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/public/login/login.css">
+  <link rel="stylesheet" href="/src/private/home.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-logo">B</div>
+    <div class="nav-links">
+      <a href="/src/private/home.html" class="nav-link">Home</a>
+      <a href="/src/components/readme.html" class="nav-link active">Explorar</a>
+      <a href="/src/utils/ia.html" class="nav-link">IA</a>
+    </div>
+    <div class="nav-user">
+      <span id="nomeUsuario"></span>
+      <button onclick="logout()" id="btnLogout" style="display:none">Sair</button>
+      <button id="toggleDark">🌙</button>
+     
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h2>Explorar</h2>
+    <p>Descubra novos livros</p>
+    <div class="search-box">
+      <input id="PesquisarDoExporar" type="text" placeholder="Qual será a leitura de hoje?">
+      <button id="btnPesquisar">🔍</button>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div id="loading" class="loading" style="display:none;">Carregando...</div>
+    <div class="carousel-wrapper">
+      <button id="arrow-left"  class="arrow">&#8592;</button>
+      <div id="carousel-track" class="carousel"></div>
+      <button id="arrow-right" class="arrow">&#8594;</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-left">
+      <span class="icon">📘</span>
+      <a href="#">Sobre</a>
+      <a href="#">Contato</a>
+    </div>
+    <div class="footer-right">
+      <span class="icon">✨</span>
+      <a href="#">Termos</a>
+      <a href="#">Privacidade</a>
+    </div>
+  </footer>
+
+  <!-- livros.js primeiro (define buscarLivros), site3.js depois -->
+  <script src="/src/utils/de_book_api.js"></script>
+  <script src="readme.js"></script>
+</body>
+</html>

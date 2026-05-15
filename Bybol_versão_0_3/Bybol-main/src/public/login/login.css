@@ -1,0 +1,344 @@
+/* ===========================
+   RESET / BASE
+=========================== */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+  overflow-y: scroll;
+  text-align: center;
+  padding-bottom: 80px; /* espaço para o footer fixo */
+}
+
+/* ===========================
+   TEMA (LIGHT / DARK)
+=========================== */
+:root {
+  --bg:           #87a8ef;
+  --text:         #111;
+  --card-bg:      #f5f5f5;
+  --accent:       #4e8cff;
+  --title-color:  #1b18a5;
+  --h2-color:     #1b18a5;
+}
+
+.dark {
+  --bg:           #0202bf;
+  --text:         #e6edf3;
+  --card-bg:      #161b22;
+  --accent:       #58a6ff;
+  --title-color:  #ffffff;
+  --h2-color:     #ffffff;
+}
+
+/* ===========================
+   TÍTULOS E TEXTOS
+=========================== */
+h1 {
+  font-size: 150px;
+  color: var(--title-color);
+  font-weight: 900;
+  rotate: -15deg;
+  margin-top: 40px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+h2 {
+  font-size: 32px;
+  color: var(--h2-color);
+  font-weight: 900;
+  margin-top: 40px;
+}
+
+p { font-size: 20px; }
+
+/* ===========================
+   BOTÕES PRINCIPAIS
+=========================== */
+button {
+  cursor: pointer;
+  border-radius: 8px;
+  border: none;
+}
+
+#Explorar,
+#CriarConta,
+#Login,
+#ModoAnonimo,
+#acessarpagina,
+#btnCadastrar,
+#btnLogin {
+  font-family: 'Gill Sans', sans-serif;
+  font-size: 25px;
+  padding: 10px 20px;
+  display: block;
+  margin: 10px auto;
+  transition: background 0.3s, color 0.3s;
+}
+
+#Explorar      { background: #3032be; color: white; }
+#CriarConta    { background: #e6d92e; color: black; }
+#Login         { background: #3967e6; color: white; }
+#ModoAnonimo   { background: black;   color: white; }
+#acessarpagina,
+#btnCadastrar,
+#btnLogin      { background: #2d2ab8; color: white; }
+
+#Explorar:hover,
+#CriarConta:hover,
+#Login:hover,
+#ModoAnonimo:hover,
+#acessarpagina:hover,
+#btnCadastrar:hover,
+#btnLogin:hover {
+  background: #ffffff;
+  color: black;
+}
+
+/* ===========================
+   INPUTS
+=========================== */
+input {
+  padding: 10px;
+  border: 2px solid blue;
+  border-radius: 5px;
+  width: 40%;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 18px 30px;
+  background: rgba(20, 20, 35, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: 'Gill Sans', sans-serif;
+  font-size: 18px;
+  color: var(--text);
+  transition: 0.3s;
+  z-index: 100;
+}
+
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+footer a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px var(--accent);
+  transform: scale(1.1);
+}
+
+footer .icon {
+  font-size: 22px;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: 0.3s;
+}
+
+footer .icon:hover {
+  color: var(--accent);
+  transform: scale(1.3) rotate(10deg);
+}
+
+@media screen and (max-width: 600px) {
+  footer {
+    flex-direction: column;
+    gap: 12px;
+    font-size: 16px;
+    padding: 15px 20px;
+  }
+}
+
+/* ===========================
+   BARRA DE PESQUISA
+=========================== */
+.search-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px auto;
+}
+
+.search-box input {
+  width: 350px;
+  padding: 12px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}
+
+.search-box input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0,123,255,0.4);
+  outline: none;
+}
+
+#btnPesquisar {
+  padding: 12px 20px;
+  background: #257ff4;
+  border-radius: 8px;
+  font-size: 18px;
+  color: white;
+}
+
+#btnPesquisar:hover { background: #0f56b3; }
+
+/* ===========================
+   LOADING
+=========================== */
+.loading {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* ===========================
+   CARROSSEL COM SETAS
+=========================== */
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 10px;
+}
+
+.arrow {
+  flex-shrink: 0;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.arrow:hover { background: #0f56b3; }
+
+.carousel {
+  flex: 1;
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 20px;
+  padding: 20px 10px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Oculta scrollbar visualmente mas mantém funcional */
+.carousel::-webkit-scrollbar { height: 6px; }
+.carousel::-webkit-scrollbar-track { background: transparent; }
+.carousel::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+
+/* ===========================
+   CARDS DE LIVRO
+=========================== */
+.livro {
+  flex: 0 0 auto;
+  width: 180px;
+  background: var(--card-bg);
+  padding: 12px;
+  border-radius: 12px;
+  scroll-snap-align: start;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.livro img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: transform 0.25s ease;
+}
+
+.livro h3 {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.livro p {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.livro:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.livro:hover img { transform: scale(1.05); }
+
+.livro a {
+  background-color: #3939d4;
+  color: white;
+  display: block;
+  border-radius: 8px;
+  padding: 6px;
+  text-decoration: none;
+  font-size: 13px;
+  transition: background 0.2s;
+}
+
+.livro a:hover { background-color: #1e1ea8; }
+
+/* ===========================
+   DARK MODE BUTTON
+=========================== */
+#toggleDark {
+  background: var(--card-bg);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 8px 14px;
+  margin-top: 10px;
+  transition: 0.2s;
+  border-radius: 6px;
+}
+
+#toggleDark:hover {
+  background: var(--accent);
+  color: white;
+}
+
+#Voltar {
+  background: var(--card-bg);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 8px 14px;
+  margin-top: 10px;
+  transition: 0.2s;
+  border-radius: 6px;
+}
+
+#Voltar:hover {
+  background: var(--accent);
+  color: white;
+}

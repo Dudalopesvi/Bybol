@@ -1,0 +1,330 @@
+/* ===========================
+   BYBOL — login-novo.css
+   Estilos da tela de login/cadastro redesenhada
+=========================== */
+
+/* ── Layout geral ── */
+.tela-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 100px);
+  padding: 20px 20px 100px;
+}
+
+.tela-wrapper.hidden {
+  display: none;
+}
+
+/* ── Logo block ── */
+.logo-block {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.logo-letra {
+  font-size: 120px;
+  color: var(--title-color);
+  font-weight: 900;
+  rotate: -12deg;
+  font-family: 'Times New Roman', serif;
+  line-height: 1;
+  display: inline-block;
+  margin-bottom: -8px;
+}
+
+.logo-letra.small {
+  font-size: 52px;
+  rotate: -8deg;
+  margin-bottom: 0;
+}
+
+.logo-sub {
+  font-size: 15px;
+  color: var(--text);
+  opacity: 0.7;
+  margin-top: -8px;
+  letter-spacing: 1px;
+  text-transform: lowercase;
+}
+
+.tela-titulo {
+  font-size: 28px;
+  color: var(--h2-color);
+  font-weight: 900;
+  margin-bottom: 6px;
+  margin-top: 0;
+}
+
+.tela-desc {
+  font-size: 15px;
+  color: var(--text);
+  opacity: 0.8;
+  max-width: 320px;
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 28px;
+}
+
+/* ── Grid de botões da tela inicial ── */
+.botoes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 20px;
+}
+
+/* ── Botões ── */
+.btn-principal {
+  background: var(--accent);
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 13px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  transition: background 0.2s, transform 0.1s;
+}
+.btn-principal:hover { background: #1c1ea0; transform: scale(1.03); }
+.btn-principal.full  { width: 100%; font-size: 16px; padding: 14px; }
+
+.btn-secundario {
+  background: #3967e6;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 13px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  transition: background 0.2s, transform 0.1s;
+}
+.btn-secundario:hover { background: #1c1ea0; transform: scale(1.03); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: 2px solid var(--accent);
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  transition: 0.2s;
+}
+.btn-outline:hover { background: var(--accent); color: white; transform: scale(1.03); }
+.btn-outline.full  { width: 100%; }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.15);
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  transition: 0.2s;
+}
+.btn-ghost:hover { background: rgba(0,0,0,0.07); }
+
+.dark .btn-ghost {
+  border-color: rgba(255,255,255,0.15);
+}
+.dark .btn-ghost:hover {
+  background: rgba(255,255,255,0.07);
+}
+
+/* ── Card do formulário ── */
+.form-card {
+  background: var(--card-bg);
+  border: 2px solid var(--accent);
+  border-radius: 20px;
+  padding: 32px 28px 24px;
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  text-align: left;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.form-header h2 {
+  font-size: 24px;
+  margin-top: 10px;
+  margin-bottom: 4px;
+  color: var(--h2-color);
+}
+
+.form-header p {
+  font-size: 14px;
+  opacity: 0.7;
+  color: var(--text);
+}
+
+/* ── Botão voltar no topo ── */
+.btn-voltar-topo {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: transparent;
+  border: none;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+  font-family: 'Montserrat', sans-serif;
+  transition: 0.2s;
+}
+.btn-voltar-topo:hover { background: rgba(78,140,255,0.12); }
+
+/* ── Grupos de campos ── */
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+  opacity: 0.85;
+}
+
+.input-wrap {
+  display: flex;
+  align-items: center;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background: var(--card-bg);
+}
+
+.input-wrap:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(78,140,255,0.15);
+}
+
+.input-icon {
+  padding: 0 10px;
+  font-size: 16px;
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+.input-wrap input {
+  flex: 1;
+  border: none;
+  padding: 11px 10px 11px 0;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  background: transparent;
+  color: var(--text);
+  outline: none;
+  width: auto;
+  margin: 0;
+}
+
+.btn-olho {
+  padding: 0 12px;
+  background: transparent;
+  border: none;
+  border-left: 1px solid #ccc;
+  font-size: 15px;
+  cursor: pointer;
+  color: var(--accent);
+  transition: background 0.2s;
+  height: 100%;
+}
+.btn-olho:hover { background: rgba(78,140,255,0.08); }
+
+/* ── Força da senha ── */
+.forca-senha-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 7px;
+}
+
+.forca-barra {
+  flex: 1;
+  height: 5px;
+  background: #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.forca-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 4px;
+  transition: width 0.3s, background 0.3s;
+}
+
+.forca-texto {
+  font-size: 11px;
+  font-weight: 700;
+  min-width: 40px;
+}
+
+/* ── Erro ── */
+.form-erro {
+  font-size: 13px;
+  color: #e05555;
+  font-weight: 600;
+  background: rgba(224,85,85,0.08);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 12px;
+}
+
+/* ── Rodapé do form ── */
+.form-rodape {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text);
+  opacity: 0.8;
+  margin-top: 14px;
+}
+
+.form-rodape a {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+}
+.form-rodape a:hover { text-decoration: underline; }
+
+/* ── Tela anônimo ── */
+.anonimo-card { text-align: center; }
+.anonimo-icon { font-size: 48px; margin-bottom: 8px; }
+
+/* ── Dark mode ajustes ── */
+.dark .form-card { box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
+.dark .input-wrap { border-color: #2a3460; }
+.dark .input-wrap:focus-within { border-color: var(--accent); }
+.dark .btn-olho { border-left-color: #2a3460; }
+.dark .forca-barra { background: #2a3460; }
+
+/* ── Responsivo ── */
+@media screen and (max-width: 480px) {
+  .logo-letra { font-size: 80px; }
+  .botoes-grid { grid-template-columns: 1fr; max-width: 260px; }
+  .form-card { padding: 28px 18px 20px; }
+  .tela-titulo { font-size: 22px; }
+}

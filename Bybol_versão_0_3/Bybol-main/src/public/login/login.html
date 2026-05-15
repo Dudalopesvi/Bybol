@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bybol</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/public/login/login.css">
+  <link rel="stylesheet" href="/src/public/login/login-novo.css">
+</head>
+<body>
+
+  <!-- ── Tela inicial ─────────────────────────────── -->
+  <div id="telaInicial" class="tela-wrapper">
+    <div class="logo-block">
+      <div class="logo-letra">B</div>
+      <p class="logo-sub">sua estante digital</p>
+    </div>
+    <h2 class="tela-titulo">Bem-vindo(a) ao Bybol!</h2>
+    <p class="tela-desc">Descubra, organize e converse sobre os seus livros favoritos.</p>
+    <div class="botoes-grid">
+      <button class="btn-principal" onclick="mostrarTela('telaCriarConta')">✨ Criar Conta</button>
+      <button class="btn-secundario" onclick="mostrarTela('telaLogin')">🔐 Fazer Login</button>
+      <button class="btn-outline" onclick="irPara('/src/components/readme.html')">🔍 Explorar</button>
+      <button class="btn-ghost" onclick="mostrarTela('telaAnonimo')">👤 Modo Anônimo</button>
+    </div>
+    <div class="dark_mode">
+      <button id="toggleDark">🌙 Dark Mode</button>
+    </div>
+  </div>
+
+  <!-- ── Tela de criar conta ──────────────────────── -->
+  <div id="telaCriarConta" class="tela-wrapper hidden">
+    <div class="form-card">
+      <button class="btn-voltar-topo" onclick="mostrarTela('telaInicial')">← Voltar</button>
+      <div class="form-header">
+        <div class="logo-letra small">B</div>
+        <h2>Criar conta</h2>
+        <p>Junte-se à comunidade Bybol</p>
+      </div>
+
+      <div class="form-group">
+        <label for="nomecriarconta">Nome de usuário</label>
+        <div class="input-wrap">
+          <span class="input-icon">👤</span>
+          <input id="nomecriarconta" type="text" placeholder="Como quer ser chamado(a)?" autocomplete="username">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="emailaocriar">E-mail</label>
+        <div class="input-wrap">
+          <span class="input-icon">📧</span>
+          <input id="emailaocriar" type="email" placeholder="seu@email.com" autocomplete="email">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="senhadocriarconta">Senha</label>
+        <div class="input-wrap">
+          <span class="input-icon">🔒</span>
+          <input id="senhadocriarconta" type="password" placeholder="Mínimo 6 caracteres" autocomplete="new-password">
+          <button class="btn-olho" onclick="toggleSenha('senhadocriarconta', this)" tabindex="-1">👁</button>
+        </div>
+        <div class="forca-senha-wrap" id="forcaSenhaWrap" style="display:none">
+          <div class="forca-barra">
+            <div id="forcaBarra" class="forca-fill"></div>
+          </div>
+          <span id="forcaTexto" class="forca-texto"></span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmarSenha">Confirmar senha</label>
+        <div class="input-wrap">
+          <span class="input-icon">🔒</span>
+          <input id="confirmarSenha" type="password" placeholder="Repita a senha" autocomplete="new-password">
+          <button class="btn-olho" onclick="toggleSenha('confirmarSenha', this)" tabindex="-1">👁</button>
+        </div>
+      </div>
+
+      <p id="erroCriarConta" class="form-erro" style="display:none"></p>
+
+      <button class="btn-principal full" onclick="cadastrar()" id="btnCadastrar">Criar minha conta →</button>
+
+      <p class="form-rodape">Já tem conta? <a href="#" onclick="mostrarTela('telaLogin')">Fazer login</a></p>
+    </div>
+  </div>
+
+  <!-- ── Tela de login ─────────────────────────────── -->
+  <div id="telaLogin" class="tela-wrapper hidden">
+    <div class="form-card">
+      <button class="btn-voltar-topo" onclick="mostrarTela('telaInicial')">← Voltar</button>
+      <div class="form-header">
+        <div class="logo-letra small">B</div>
+        <h2>Login</h2>
+        <p>Bem-vindo(a) de volta, leitor(a)!</p>
+      </div>
+
+      <div class="form-group">
+        <label for="nomelogin">Nome de usuário</label>
+        <div class="input-wrap">
+          <span class="input-icon">👤</span>
+          <input id="nomelogin" type="text" placeholder="Seu login" autocomplete="username">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="senhalogin">Senha</label>
+        <div class="input-wrap">
+          <span class="input-icon">🔒</span>
+          <input id="senhalogin" type="password" placeholder="Sua senha" autocomplete="current-password">
+          <button class="btn-olho" onclick="toggleSenha('senhalogin', this)" tabindex="-1">👁</button>
+        </div>
+      </div>
+
+      <p id="erroLogin" class="form-erro" style="display:none"></p>
+
+      <button class="btn-principal full" onclick="fazerLogin()" id="btnLogin">Entrar →</button>
+
+      <p class="form-rodape">Não tem conta? <a href="#" onclick="mostrarTela('telaCriarConta')">Criar agora</a></p>
+    </div>
+  </div>
+
+  <!-- ── Tela modo anônimo ─────────────────────────── -->
+  <div id="telaAnonimo" class="tela-wrapper hidden">
+    <div class="form-card anonimo-card">
+      <button class="btn-voltar-topo" onclick="mostrarTela('telaInicial')">← Voltar</button>
+      <div class="form-header">
+        <div class="anonimo-icon">👤</div>
+        <h2>Modo Anônimo</h2>
+        <p>Você está navegando sem conta.<br>Algumas funções estão desabilitadas.</p>
+      </div>
+      <button class="btn-outline full" onclick="irPara('/src/components/readme.html')">🔍 Explorar livros</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-left">
+      <span class="icon">📘</span>
+      <a href="#">Sobre</a>
+      <a href="#">Contato</a>
+    </div>
+    <div class="footer-right">
+      <span class="icon">✨</span>
+      <a href="#">Termos</a>
+      <a href="#">Privacidade</a>
+    </div>
+  </footer>
+
+  <script src="login.js"></script>
+  <script src="/src/utils/routga.js"></script>
+</body>
+</html>
